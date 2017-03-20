@@ -6,7 +6,7 @@ module.exports = function(grunt) {
         separator: '\n/*next file*/\n\n'
       },
       dist: {
-        src: ['js/main.js'],
+        src: ['js/bundle.js'],
         dest: 'js/built.js'
       }
     },
@@ -30,7 +30,7 @@ module.exports = function(grunt) {
     dev: {
       files: {
          // destination  // source file
-        'css/main.css': 'css/main.scss'
+        'css/main.css': 'sass/main.scss'
         }
       }
     }

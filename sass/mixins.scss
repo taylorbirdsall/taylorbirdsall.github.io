@@ -1,0 +1,186 @@
+@mixin bp($min, $max) {
+
+  $MediaQueriesEnabled: true !default;
+
+  @if $MediaQueriesEnabled
+  {
+    $bps: xs, sm, md, lg;
+    $valid-input: true;
+    $mq: "";
+
+    $maxes: (
+      xs: "(max-width: #{$screen-xs-max})",
+      sm: "(max-width: #{$screen-sm-max})",
+      md: "(max-width: #{$screen-md-max})"
+    );
+
+    $mins: (
+      sm: "(min-width: #{$screen-sm-min})",
+      md: "(min-width: #{$screen-md-min})",
+      lg: "(min-width: #{$screen-lg-min})"
+    );
+
+    @if($min != null and $max != null)
+    {
+      @if index($bps, $min) and index($bps, $max)
+      {
+        $mq: "#{map-get($mins, $min)} and #{map-get($maxes, $max)}"
+      }
+      @else
+      {
+        @warn "Breakpoint parameters must be either xs, sm, md, or lg.";
+        $valid-input: false;
+      }
+    }
+
+    @else if ($min != null and $max == null)
+    {
+      @if $min == xs
+      {
+        @warn "There is no min-width for Mobile Screens.";
+        $valid-input: false;
+      }
+      @else
+      {
+        $mq: "#{map-get($mins, $min)}"
+      }
+    }
+
+    @else if ($min == null and $max != null)
+    {
+      @if $max == lg
+      {
+        @warn "There is no Max Width for Large Screens.";
+        $valid-input: false;
+      }
+      @else
+      {
+        $mq: "#{map-get($maxes, $max)}"
+      }
+    }
+    @else
+    {
+      @warn "You must pass a parameter to the bp() mixin!";
+      $valid-input: false;
+    }
+    @if $valid-input
+    {
+      @media #{$mq} { @content;}
+    }
+  }
+}
+
+@mixin bplte($max) {
+  @include bp(null, $max) {
+    @content;
+  }
+}
+
+@mixin bpgte($min) {
+  @include bp($min, null) {
+    @content;
+  }
+}
+
+@function toRem($number)
+{
+  @if unit($number) == 'px' {
+    $stripped: $number / ($number * 0 + 1);
+    $converted: ($stripped/16 * 1rem);
+    @return $converted;
+  }
+
+  @else {
+    @return $number;
+  }
+}
+
+@mixin font-sizes($font-size, $line-height, $font-size-xs: $font-size, $line-height-xs: $line-height)
+{
+  font-size: toRem($font-size-xs);
+  line-height: toRem($line-height-xs);
+
+  @if $font-size != $font-size-xs
+  {
+    @include bpgte(sm)
+    {
+      font-size: toRem($font-size);
+    }
+  }
+
+  @if $line-height != $line-height-xs
+  {
+    @include bpgte(sm)
+    {
+      line-height: toRem($line-height);
+    }
+  }
+}
+
+@mixin sr-only()
+{
+  position: absolute;
+  width: toRem(1px);
+  height: toRem(1px);
+  margin: toRem(-1px);
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+  white-space: nowrap;
+}
+
+@mixin link-primary
+{
+  color: $gray-1;
+  transition: color 0.3s ease-in-out 0s;
+
+  &:hover
+  {
+    color: $gray-2;
+  }
+
+  &:link, &:hover, &:active, &:visited
+  {
+    text-decoration: none;
+  }
+}
+
+@mixin link-transition
+{
+  @include link-primary;
+  position: relative;
+
+  &::before
+  {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: toRem(3px);
+    bottom: toRem(-3px);
+    left: 0;
+    background-color: $gray-2;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out 0s;
+  }
+
+  &:hover::before
+  {
+    visibility: visible;
+    transform: scaleX(1);
+  }
+
+}
+
+@mixin font-header
+{
+  @include font-sizes(18px, 1);
+  text-transform: uppercase;
+}
+
+@mixin font-footer
+{
+  @include font-sizes(16px, 1);
+  color: $gray-1;
+}
