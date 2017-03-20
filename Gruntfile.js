@@ -30,7 +30,7 @@ module.exports = function(grunt) {
     dev: {
       files: {
          // destination  // source file
-        'css/main.css': 'css/main.scss'
+        'css/main.css': 'sass/main.scss'
         }
       }
     }
