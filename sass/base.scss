@@ -8,11 +8,7 @@ html
 body
 {
   margin: 0;
-}
-
-a
-{
-
+  font-family: $font-family-main;
 }
 
 ul
@@ -28,12 +24,32 @@ li
   padding: 0px;
 }
 
+h1,h2,h3,h4,h5,h6
+{
+  margin: 0;
+}
+
+a
+{
+  @extend .Link;
+}
+
 p
 {
-
+  margin: 0px;
 }
 
 img
 {
   max-width: 100%;
+}
+
+abbr
+{
+  text-decoration: none;
+}
+
+address
+{
+  font-style: normal;
 }

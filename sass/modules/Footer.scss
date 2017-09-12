@@ -1,0 +1,13 @@
+.Footer
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $footer-size;
+  background-color: $blue-1;
+
+  &-text
+  {
+    @include font-footer;
+  }
+}

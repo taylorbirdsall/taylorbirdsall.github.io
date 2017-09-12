@@ -1,0 +1,94 @@
+.Info
+{
+  &-bio
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding-bottom: toRem(30px);
+  }
+
+  &-bioCircle
+  {
+    width: toRem(180px);
+    height: toRem(180px);
+
+    background-image: url($image-path + '/bio-photo.jpeg');
+    background-size: cover;
+
+    border: 10px solid $gray-1;
+    border-radius: 50%;
+  }
+
+  &-bioOuter
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: toRem(200px);
+    height: toRem(200px);
+
+    @include reveal;
+  }
+
+  &-contentWrapper
+  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 80vw;
+  }
+
+  &-title
+  {
+    display: flex;
+    flex-direction: column;
+
+    text-align: center;
+
+    padding-bottom: toRem(30px);
+    margin-bottom: toRem(30px);
+
+    border-bottom: 1px solid $gray-1;
+  }
+
+  &-titleMain
+  {
+    padding-bottom: toRem(10px);
+    margin: 0;
+
+    @include font-sizes(50px, 1);
+    text-transform: uppercase;
+  }
+
+  &-titleSubtitle
+  {
+    @include font-sizes(20px, 1);
+  }
+
+  &-about
+  {
+    display: flex;
+  }
+
+  &-description, &-contact
+  {
+    width: 50%;
+
+    flex-shrink: 0;
+  }
+
+  &-description
+  {
+    padding-right: toRem(30px);
+  }
+
+  &-contact
+  {
+    padding-left: toRem(30px);
+  }
+}

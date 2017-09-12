@@ -1,93 +1,674 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="format-detection" content="telephone=no">
     <link rel="shortcut icon" href="favicon.ico">
-    <meta name="description" content="Web version of a resume for Taylor Birdsall">
-    <meta name="keywords" content="Web development, software engineering, resume">
+    <meta name="description" content="Website resume for Taylor Birdsall">
+    <meta name="keywords" content="Web development, software engineering, resume, front-end">
     <meta property="og:title" content="Taylor Birdsall Resume">
     <meta property="og:image" content="TODO">
     <meta property="og:type" content="website">
     <meta property="og:url" content="index.html">
-    <link rel="canonical" href="https://taylorbirdsall.github.io/">
+    <link rel="canonical" href="https://taylorbirdsall.com">
     <title>Taylor Birdsall Resume</title>
-    <script async src="//www.google-analytics.com/analytics.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+    <script async src="ga.js"></script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','ga.js','ga');
+
+      ga('create', 'UA-106336571-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
     <link rel="stylesheet" href="css/main.min.css">
   </head>
-  <body>
-      <header class="header">
-        <div class="header-menu">
-          <ul class="header-menu-list">
-            <li class="header-menu-list-item">
-              <a class="header-menu-list-item-link" href="#main">
-                <span class="header-menu-list-item-text">
-                  Home
-                </span>
-              </a>
-            </li>
-            <li class="header-menu-list-item">
-              <a class="header-menu-list-item-link" href="#portfolio">
-                <span class="header-menu-list-item-text">
-                  Portfolio
-                </span>
-              </a>
-            </li>
-            <li class="header-menu-list-item">
-              <a class="header-menu-list-item-link" href="#about">
-                <span class="header-menu-list-item-text">
-                  About
-                </span>
-              </a>
-            </li>
-            <li class="header-menu-list-item">
-              <a class="header-menu-list-item-link" href="#resume">
-                <span class="header-menu-list-item-text">
-                  Resume
-                </span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </header>
+  <body itemscope itemtype="http://schema.org/Person">
 
-      <main class="site-main">
-        <section class="info" id="info">
-          <div class="info-bio">
-            <div class="info-bio-circle-outer">
-              <div class="info-bio-circle"></div>
+    <header class="Header" id="Header">
+      <div class="Header-menu">
+        <ul class="Header-list">
+          <li class="Header-item">
+            <a class="Header-link Link-overline" href="#Info">
+              <span class="Header-text">
+                Info
+              </span>
+            </a>
+          </li>
+          <li class="Header-item">
+            <a class="Header-link Link-overline" href="#Portfolio">
+              <span class="Header-text">
+                Portfolio
+              </span>
+            </a>
+          </li>
+          <li class="Header-item">
+            <a class="Header-link Link-overline" href="#About">
+              <span class="Header-text">
+                About
+              </span>
+            </a>
+          </li>
+          <li class="Header-item">
+            <a class="Header-link Link-overline" href="#Resume">
+              <span class="Header-text">
+                Resume
+              </span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="Main">
+      <section class="Info Section" id="Info">
+        <div class="Info-bio">
+          <div class="Info-bioOuter">
+            <div class="Info-bioCircle"></div>
+          </div>
+        </div>
+        <div class="Info-contentWrapper">
+          <div class="Info-content">
+            <div class="Info-title">
+              <h1 class="Info-titleMain" itemprop="name">
+                Taylor Birdsall
+              </h1>
+              <span class="Info-titleSubtitle" itemprop="jobTitle">
+                Software Engineer
+              </span>
+            </div>
+            <div class="Info-about">
+              <div class="Info-description">
+                <h3 class="Info-descriptionTitle Heading-minor">
+                  About Me
+                </h3>
+                <p class="Info-descriptionText">
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
+                </p>
+              </div>
+              <div class="Info-contact">
+                <h3 class="Info-contactTitle Heading-minor">
+                  Details
+                </h3>
+                <article class="Details">
+                  <div class="Details-item">
+                    <h4 class="Details-title">
+                      Address
+                    </h4>
+                    <address class="Address"
+                             itemscope=""
+                             itemtype="http://schema.org/PostalAddress"
+                             itemprop="address">
+                      <span class="Address-street" itemprop="streetAddress">
+                        <span class="Address-street1">8231 Crestwood Heights Dr. </span>
+                      </span>
+                      <span class="Address-city">
+                        <span itemprop="addressLocality">McLean</span>
+                        <span class="Address-cityComma">,</span>
+                      </span>
+                      <abbr class="Address-state"
+                            title="Virginia"
+                            aria-label="Virginia"
+                            itemprop="addressRegion">
+                        VA
+                      </abbr>
+                      <span class="Address-postalCode" itemprop="postalCode">
+                        22102
+                      </span>
+                      <abbr class="Address-country"
+                            title="United States"
+                            aria-label="United States"
+                            itemprop="addressCountry">
+                        US
+                      </abbr>
+                    </address>
+                  </div>
+                  <div class="Details-item">
+                    <h4 class="Details-title">
+                      Email
+                    </h4>
+                    <a href="mailto:tbirdsall12@gmail.com" class="Details-email Link-underline">
+                      tbirdsall12@gmail.com
+                    </a>
+                  </div>
+                  <div class="Details-item">
+                    <h4 class="Details-title">
+                      Phone
+                    </h4>
+                    <div class="Phone">
+                      <div class="Phone-desktop l-hidden-xs">
+                        919-793-4528
+                      </div>
+                      <a href="tel:9197934528" class="Phone-mobile l-visible-xs">
+                        919-793-4528
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              </div>
             </div>
           </div>
-          <div class="info-title">
-            <h1 class="info-title-main">
-              Taylor Birdsall
-            </h1>
-            <span class="info-title-subtitle">
-              Software Engineer
-            </span>
-          </div>
-        </section>
-
-        <section class="portfolio" id="portfolio">
-
-        </section>
-
-        <section class="about" id="about">
-
-        </section>
-
-        <section class="resume" id="resume">
-
-        </section>
-      </main>
-
-      <footer class="footer">
-        <div class="footer-text">
-          Copyright <span class="footer-text-date">2017</span> Taylor Birdsall
         </div>
-      </footer>
-      <script type="text/javascript" src="js/bundle.js" charset="utf-8"></script>
+      </section>
+
+      <section class="Portfolio Section" id="Portfolio">
+        <h2 class="Portfolio-title Heading-major Heading--light">
+          Portfolio
+        </h2>
+      </section>
+
+      <section class="About Section" id="About">
+        <h2 class="About-title Heading-major Heading--dark">
+          About This Site
+        </h2>
+        <p class="About-description">
+          In addition to acting as a resume, this site was built to demonstrate a strong understanding of different web development technologies and concepts.
+        </p>
+        <ul class="About-list">
+          <li class="About-item">
+            <h3 class="About-listTitle">
+              Code - <a class="About-listLink Link Link-underline" href="https://github.com/taylorbirdsall/taylorbirdsall.github.io">GitHub</a>
+            </h3>
+            <ul class="About-subList">
+              <li class="About-listItem">
+                Webpack used for JS compilation and minification
+              </li>
+              <li class="About-listItem">
+                Grunt used for SASS to CSS compilation and minification
+              </li>
+              <li class="About-listItem">
+                Modular Javascript structure using bleding edge ES6
+              </li>
+              <li class="About-listItem">
+                Modular SASS structure with SUIT naming methodology
+              </li>
+              <li class="About-listItem">
+                Aside from smooth scrolling funcitonality (jQuery preferred due to browser support), no javascript libraries or use of jQuery in code.
+              </li>
+            </ul>
+          </li>
+          <li class="About-item">
+            <h3 class="About-listTitle">
+              Performance
+            </h3>
+            <ul class="About-subList">
+              <li class="About-listItem">
+                Industry Leading SEO - full schema markup tested on Google Structured Data Testing Tool - <a class="Link Link-underline" href="https://search.google.com/structured-data/testing-tool/u/0/#url=taylorbirdsall.github.io">Google SDTT</a>
+              </li>
+              <li class="About-listItem">
+                90 score on Google PageSpeed Insights - <a class="Link Link-underline" href="https://developers.google.com/speed/pagespeed/insights/?url=taylorbirdsall.github.io&tab=desktop">Google PSI</a>
+                <br>
+                <br>
+                *NOTE - Score could be even higher, but chose to leave main CSS file as render blocking (for UX reasons) and currently cannot control the Cache-Control headers on Github and Google served assets
+              </li>
+              <li class="About-listItem">
+                Thanks to GitHub Pages - using HTTP2 protocol, and GZIP compression (NGINX)
+              </li>
+            </ul>
+          </li>
+          <li class="About-item">
+            <h3 class="About-listTitle">
+              Accessibilty - Full WCAG AA Compliance
+            </h3>
+            <ul class="About-subList">
+              <li class="About-listItem">
+                Passes Tenon IO Accessibilty Tool - <a class="Link Link-underline" href="https://tenon.io/testNow.php?url=http://taylorbirdsall.github.io">Tenon</a>
+              </li>
+              <li class="About-listItem">
+                Passes Web Accessibilty Evaluation Tool - <a class="Link Link-underline" href="http://wave.webaim.org/report#/taylorbirdsall.github.io">Wave</a>
+              </li>
+              <li class="About-listItem">
+                Passes W3C HTML5 Validation - <a class="Link Link-underline" href="TODO">W3C</a>
+              </li>
+            </ul>
+          </li>
+          <li class="About-item">
+            <h3 class="About-listTitle">
+              Visual
+            </h3>
+            <ul class="About-subList">
+              <li class="About-listItem">
+                Modern, flat, simplistic design
+              </li>
+              <li class="About-listItem">
+                All animations built with purely CSS
+              </li>
+              <li class="About-listItem">
+                Personally designed, no template or outside help used
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+      <section class="Resume Section" id="Resume">
+        <h2 class="Resume-title Heading-major Heading--light">
+          Resume
+        </h2>
+        <div class="Skills Section-mini">
+          <h3 class="Skills-title Heading-minor Heading--light Heading--underline">
+            Skills
+          </h3>
+          <div class="Skills-category">
+            <h4 class="Skills-categoryTitle">
+              Languages
+            </h4>
+            <ul class="Skills-list">
+              <li class="Skills-item">
+                Javascript
+              </li>
+              <li class="Skills-item">
+                CSS
+              </li>
+              <li class="Skills-item">
+                HTML
+              </li>
+              <li class="Skills-item">
+                SASS
+              </li>
+              <li class="Skills-item">
+                jQuery
+              </li>
+              <li class="Skills-item">
+                CoffeScript
+              </li>
+              <li class="Skills-item">
+                Go
+              </li>
+              <li class="Skills-item">
+                Java
+              </li>
+            </ul>
+          </div>
+          <div class="Skills-category">
+            <h4 class="Skills-categoryTitle">
+              Technologies
+            </h4>
+            <ul class="Skills-list">
+              <li class="Skills-item">
+                Node.js
+              </li>
+              <li class="Skills-item">
+                Closure Templates
+              </li>
+              <li class="Skills-item">
+                Grunt
+              </li>
+              <li class="Skills-item">
+                Webpack
+              </li>
+              <li class="Skills-item">
+                AWS Lambda
+              </li>
+              <li class="Skills-item">
+                AWS API Gateway
+              </li>
+              <li class="Skills-item">
+                AWS S3
+              </li>
+              <li class="Skills-item">
+                Slack Integrations
+              </li>
+              <li class="Skills-item">
+                Let's Encrypt HTTPS Certificates
+              </li>
+              <li class="Skills-item">
+                Git
+              </li>
+            </ul>
+          </div>
+          <div class="Skills-category">
+            <h4 class="Skills-categoryTitle">
+              Concepts
+            </h4>
+            <ul class="Skills-list">
+              <li class="Skills-item">
+                SEO
+              </li>
+              <li class="Skills-item">
+                Page Speed Optimization
+              </li>
+              <li class="Skills-item">
+                Schema.org Tagging
+              </li>
+              <li class="Skills-item">
+                Web Accessibility
+              </li>
+              <li class="Skills-item">
+                JIRA workflow
+              </li>
+              <li class="Skills-item">
+                HTTP2
+              </li>
+              <li class="Skills-item">
+                Analytics
+              </li>
+              <li class="Skills-item">
+                Git-flow
+              </li>
+              <li class="Skills-item">
+                SUIT-BEM
+              </li>
+              <li class="Skills-item">
+                SMACSS
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="Experience Section-mini">
+          <h3 class="Experience-title Heading-minor Heading--light Heading--underline">
+            Experience
+          </h3>
+          <div class="Experience-wrapper">
+            <div class="Experience-details">
+              <div class="Experience-name">
+                <div class="Experience-company">
+                  Yext
+                </div>
+                <div class="Experience-role">
+                  Software Engineer
+                </div>
+              </div>
+              <div class="Experience-time">
+                <div class="Experience-location">
+                  Tyson's Corner, VA
+                </div>
+                <div class="Experience-duration">
+                  May 2015 - Present
+                </div>
+              </div>
+            </div>
+            <div class="Experience-info">
+              <ul class="Experience-list">
+                <li class="Experience-item">
+                  Lead developer for following client location websites (includes listed directory page, and all local landing pages)
+                  <ul class="Experience-sublist">
+                    <li class="Experience-subitem Experience-subitem--Half">
+                      <b>Taco Bell:</b><br><a class="Experience-link Link Link-underlineLeft" href="https://locations.tacobell.com">locations.tacobell.com</a>
+                    </li>
+                    <li class="Experience-subitem Experience-subitem--Half">
+                      <b>Oakley:</b><br><a class="Experience-link Link Link-underlineLeft" href="https://stores.oakley.com">stores.oakley.com</a>
+                    </li>
+                    <li class="Experience-subitem Experience-subitem--Half">
+                      <b>Massage Envy:</b><br><a class="Experience-link Link Link-underlineLeft" href="https://locations.massageenvy.com">locations.massageenvy.com</a>
+                    </li>
+                    <li class="Experience-subitem Experience-subitem--Half">
+                      <b>Comcast:</b><br><a class="Experience-link Link Link-underlineLeft" href="https://locations.xfinity.com">locations.xfinity.com</a>
+                    </li>
+                    <li class="Experience-subitem Experience-subitem--Half">
+                      <b>Volvo:</b><br><a class="Experience-link Link Link-underlineLeft" href="https://usdealers.volvocars.com">usdealers.volvocars.com</a>
+                    </li>
+                    <li class="Experience-subitem Experience-subitem--Half">
+                      <b>World Wide Golf:</b><br><a class="Experience-link Link Link-underlineLeft" href="https://locations.worldwidegolfshops.com">locations.worldwidegolfshops.com</a>
+                    </li>
+                    <li class="Experience-subitem Experience-subitem--Half">
+                      <b>Qdoba:</b><br><a class="Experience-link Link Link-underlineLeft" href="https://locations.qdoba.com">locations.qdoba.com</a>
+                    </li>
+                    <li class="Experience-subitem Experience-subitem--Half">
+                      <b>Papa Ginos:</b><br><a class="Experience-link Link Link-underlineLeft" href="https://locations.papaginos.com">locations.papaginos.com</a>
+                    </li>
+                    <li class="Experience-subitem Experience-subitem--Half">
+                      <b>Cost Plus World Market:</b><br><a class="Experience-link Link Link-underlineLeft" href="https://stores.worldmarket.com">stores.worldmarket.com</a>
+                    </li>
+                    <li class="Experience-subitem Experience-subitem--Half">
+                      <b>Charm Diamond:</b><br><a class="Experience-link Link Link-underlineLeft" href="https://locations.charmdiamondcentres.com">locations.charmdiamondcentres.com</a>
+                    </li>
+                    <li class="Experience-subitem Experience-subitem--Half">
+                      <b>Tranquilidade:</b><br><a class="Experience-link Link Link-underlineLeft" href="https://agentes.tranquilidade.com">agentes.tranquilidade.com</a>
+                    </li>
+                    <li class="Experience-subitem Experience-subitem--Half">
+                      <b>Finish Line:</b><br><a class="Experience-link Link Link-underlineLeft" href="https://stores.finishline.com">stores.finishline.com</a>
+                    </li>
+                    <li class="Experience-subitem Experience-subitem--Half">
+                      <b>Bubbles Salon:</b><br><a class="Experience-link Link Link-underlineLeft" href="https://locations.bubblessalons.com">locations.bubblessalons.com</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="Experience-item">
+                  Lead developer for following projects
+                  <ul class="Experience-sublist">
+                    <li class="Experience-subitem">
+                      <b>Full stack implementations using Amazon EC2 / AWS Lambda for backend computing, AWS API Gateway for API routing, and client side JS to render</b>
+                      <ul class="Experience-nestedList">
+                        <li class="Experience-nestedItem">
+                          Farmers Insurance agents email form submission and marketing lead generator
+                          <br>
+                          <a class="Link Link-underline--White"
+                             href="https://agents.farmers.com/al/lanett/diana-welch"
+                             target="_blank"
+                             rel="noopener noreferrer">
+                            agents.farmers.com
+                          </a> (contact me form)
+                        </li>
+                        <li class="Experience-nestedItem">
+                          Qdoba Yelp Reviews Integration
+                          <br>
+                          <a class="Link Link-underline--White"
+                             href="https://locations.qdoba.com/us/dc/washington/555-11th-st-nw.html"
+                             target="_blank"
+                             rel="noopener noreferrer">
+                            locations.qdoba.com
+                          </a> (Yelp reviews section)
+                        </li>
+                        <li class="Experience-nestedItem">
+                          Willamette Dental Binary Fountian Reviews Integration
+                          <br>
+                          <a class="Link Link-underline--White"
+                             href="https://locations.willamettedental.com/id/boise/8950-w-emerald-street/mervin-young.html"
+                             target="_blank"
+                             rel="noopener noreferrer">
+                            locations.willamettedental.com
+                          </a> (dentist reviews)
+                        </li>
+                        <li class="Experience-nestedItem">
+                          Massage Envy email form submission
+                          <br>
+                          <a class="Link Link-underline--White"
+                             href="https://locations.massageenvy.com/al/auburn/2431-east-glenn-ave"
+                             target="_blank"
+                             rel="noopener noreferrer">
+                            locations.massageenvy.com
+                          </a> (contact form)
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="Experience-subitem">
+                      <b>Advanced location searchers with various map APIs</b>
+                      <ul class="Experience-nestedList">
+                        <li class="Experience-nestedItem">
+                          Locators with advanced hover/click interactions, mobile info windows, Google autocomplete, HTML5 geolocation, etc:
+                          <br>
+                          <a class="Link Link-underline--White"
+                             href="https://usdealers.volvocars.com/search.html"
+                             target="_blank"
+                             rel="noopener noreferrer">
+                            usdealers.volvocars.com
+                          </a>,
+                          <a class="Link Link-underline--White"
+                             href="https://locations.massageenvy.com/search.html"
+                             target="_blank"
+                             rel="noopener noreferrer">
+                            locations.massageenvy.com
+                          </a>,
+                          <a class="Link Link-underline--White"
+                             href="https://locatons.charmdiamondcentres.com/search.html"
+                             target="_blank"
+                             rel="noopener noreferrer">
+                            locatons.charmdiamondcentres.com
+                          </a>,
+                          <a class="Link Link-underline--White"
+                             href="https://stores.finishline.com/search.html"
+                             target="_blank"
+                             rel="noopener noreferrer">
+                            stores.finishline.com
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="Experience-subitem">
+                      <b>Internal HTTPS Certificate Expiration Manager</b>
+                      <ul class="Experience-nestedList">
+                        <li class="Experience-nestedItem">
+                          Written in Go
+                        </li>
+                        <li class="Experience-nestedItem">
+                          Crawls all Yext secure sites and monitors the expiration date of their HTTPS cert
+                        </li>
+                        <li class="Experience-nestedItem">
+                          Slack integration - posts a warning message if any certs will expire soon
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="Experience-subitem">
+                      <b>Various Client/Internal Analytics projects</b>
+                      <ul class="Experience-nestedList">
+                        <li class="Experience-nestedItem">
+                          Google, Adobe, and Tealium Analytics integrations
+                        </li>
+                        <li class="Experience-nestedItem">
+                          Heavily involved with upgrading Yext internal analytics implementation – Async loading, uses command queue
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="Experience-subitem">
+                      <b>Internal component versioning tool</b>
+                      <ul class="Experience-nestedList">
+                        <li class="Experience-nestedItem">
+                          Built in node.js
+                        </li>
+                        <li class="Experience-nestedItem">
+                          Periodically scans all websites built by Yext and compares their components with the current master library
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="Experience-item">
+                  Other:
+                  <ul class="Experience-sublist">
+                    <li class="Experience-subitem">
+                      Lead complete revamp of project handoff process between developers, designers, and product managers
+                    </li>
+                    <li class="Experience-subitem">
+                      Engineering team recruiter
+                    </li>
+                    <li class="Experience-subitem">
+                      Improved the training process for new hires
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="Experience-wrapper">
+            <div class="Experience-details">
+              <div class="Experience-name">
+                <div class="Experience-company">
+                  IBM
+                </div>
+                <div class="Experience-role">
+                  Mobile Application Development Intern
+                </div>
+              </div>
+              <div class="Experience-time">
+                <div class="Experience-location">
+                  Somers, NY
+                </div>
+                <div class="Experience-duration">
+                  Summer 2014
+                </div>
+              </div>
+            </div>
+            <div class="Experience-info">
+              <ul class="Experience-list">
+                <li class="Experience-item">
+                  Helped develop the Employee Check-In and Broadcast Service mobile application. The ECBS application allows IBM employees to check-in and subscribe to notifications. The app is used for unified communication. Team members can connect and see where other members are in times of inclement weather. Was involved in both front and back end development as well as device testing
+                </li>
+                <li class="Experience-item">
+                  Personally presented to IBM CIO and executive leadership team on the ECBS application structure and rollout
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="Experience-wrapper">
+            <div class="Experience-details">
+              <div class="Experience-name">
+                <div class="Experience-company">
+                  Booth & Associates
+                </div>
+                <div class="Experience-role">
+                  Electrical Engineering Intern
+                </div>
+              </div>
+              <div class="Experience-time">
+                <div class="Experience-location">
+                  Raleigh, NC
+                </div>
+                <div class="Experience-duration">
+                  Summer 2013
+                </div>
+              </div>
+            </div>
+            <div class="Experience-info">
+              <ul class="Experience-list">
+                <li class="Experience-item">
+                  Helped design electrical power substation for NC State University using CAD software
+                </li>
+                <li class="Experience-item">
+                  In charge of database migration for all company projects
+                </li>
+                <li class="Experience-item">
+                  Lead workshops on using new filing software
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="Experience Section-mini">
+          <h3 class="Experience-title Heading-minor Heading--light Heading--underline">
+            Education
+          </h3>
+          <div class="Experience-wrapper">
+            <div class="Experience-details">
+              <div class="Experience-name">
+                <div class="Experience-company">
+                  Johns Hopkins
+                </div>
+                <div class="Experience-role">
+                  BS in Computer Engineering, Electrical Engineering
+                </div>
+              </div>
+              <div class="Experience-time">
+                <div class="Experience-location">
+                  Baltimore, MD
+                </div>
+                <div class="Experience-duration">
+                  August 2012 - May 2016
+                </div>
+              </div>
+            </div>
+            <div class="Experience-info">
+              <ul class="Experience-list">
+                <li class="Experience-item Experience-item--Education">
+                  Minors in Computer Science and Entrepreneurship & Management
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="Footer" id="Footer">
+      <div class="Footer-text">
+        Copyright ©<span class="Footer-copy">2017</span> Taylor Birdsall
+      </div>
+    </footer>
+
+    <script async src="build/bundle.js"></script>
   </body>
 </html>

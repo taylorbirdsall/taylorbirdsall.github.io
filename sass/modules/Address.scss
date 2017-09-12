@@ -1,0 +1,22 @@
+.Address
+{
+  &-Wrapper
+  {
+    display: flex;
+  }
+
+  &-Street
+  {
+    display: flex;
+  }
+
+  &-City
+  {
+    display: inline-flex;
+  }
+
+  &-Country
+  {
+    display: none;
+  }
+}

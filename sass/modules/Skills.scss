@@ -1,0 +1,37 @@
+.Skills
+{
+  &-list
+  {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &-item
+  {
+    display: inline-flex;
+
+    color: $black;
+    background-color: $white;
+
+    padding: {
+      top: toRem(5px);
+      bottom: toRem(5px);
+      left: toRem(10px);
+      right: toRem(10px);
+    }
+    margin: {
+      right: toRem(10px);
+      bottom: toRem(15px);
+    }
+
+    cursor: pointer;
+
+    @include float-shadow;
+  }
+
+  &-categoryTitle
+  {
+    margin-top: toRem(15px);
+    margin-bottom: toRem(15px);
+  }
+}

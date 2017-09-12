@@ -1,0 +1,15 @@
+.l-hidden-xs
+{
+  @include bplte(xs)
+  {
+    display: none;
+  }
+}
+
+.l-visible-xs
+{
+  @include bpgte(sm)
+  {
+    display: none;
+  }
+}

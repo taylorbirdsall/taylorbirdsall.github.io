@@ -1,0 +1,34 @@
+.Heading
+{
+  &-major
+  {
+    @include font-sizes(35px, 35px);
+    text-align: center;
+    font-weight: bold;
+
+    margin-bottom: 20px;
+  }
+
+  &-minor
+  {
+    @include font-sizes(22px, 22px);
+    font-weight: bold;
+
+    margin-bottom: 20px;
+  }
+
+  &--underline
+  {
+    border-bottom: 1px solid $white;
+  }
+
+  &--dark
+  {
+    color: $black;
+  }
+
+  &--light
+  {
+    color: $white;
+  }
+}

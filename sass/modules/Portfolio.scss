@@ -1,0 +1,8 @@
+.Portfolio
+{
+  display: flex;
+
+  min-height: calc(100vh - #{$header-size});
+  
+  background-color: $red-2;
+}

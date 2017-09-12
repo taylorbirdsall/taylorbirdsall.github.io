@@ -1,7 +1,12 @@
-var $ = require('../node_modules/jquery/dist/jquery.min.js');
+// Third party libraries
+import 'babel-polyfill';
+import $ from 'jquery';
 
-$(function() {
+// Internal modules
+import Header from './modules/Header';
 
-  console.log('Hello from Webpack');
+$(document).ready(function() {
+
+  new Header();
 
 });

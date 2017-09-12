@@ -1,0 +1,45 @@
+.Header
+{
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+
+  display: flex;
+
+  height: $header-size;
+
+  background-color: $blue-1;
+
+  z-index: 3;
+
+  box-shadow: 0 1px 5px rgba(10, 10, 10, 0.2);
+
+  &-menu
+  {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &-list
+  {
+    display: flex;
+    align-items: center;
+  }
+
+  &-item
+  {
+    padding-right: toRem(30px);
+  }
+
+  &-text
+  {
+    @include font-header;
+  }
+
+  &-link
+  {
+    padding: toRem(7px);
+  }
+}
