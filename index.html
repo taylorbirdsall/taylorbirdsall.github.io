@@ -9,22 +9,22 @@
     <meta name="description" content="Website resume for Taylor Birdsall">
     <meta name="keywords" content="Web development, software engineering, resume, front-end">
     <meta property="og:title" content="Taylor Birdsall Resume">
-    <meta property="og:image" content="TODO">
     <meta property="og:type" content="website">
     <meta property="og:url" content="index.html">
     <link rel="canonical" href="https://taylorbirdsall.com">
     <title>Taylor Birdsall Resume</title>
-    <script async src="ga.js"></script>
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','ga.js','ga');
+    <?php if (!isset($_SERVER['HTTP_USER_AGENT']) || stripos($_SERVER['HTTP_USER_AGENT'], 'Speed Insights') === false): ?>
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-106336571-1', 'auto');
-      ga('send', 'pageview');
+        ga('create', 'UA-106336571-1', 'auto');
+        ga('send', 'pageview');
 
-    </script>
+      </script>
+    <?php endif; ?>
     <link rel="stylesheet" href="css/main.min.css">
   </head>
   <body itemscope itemtype="http://schema.org/Person">
@@ -34,30 +34,38 @@
         <ul class="Header-list">
           <li class="Header-item">
             <a class="Header-link Link-overline" href="#Info">
+              <span class="sr-only">Link to scroll to</span>
               <span class="Header-text">
                 Info
               </span>
+              <span class="sr-only">section</span>
             </a>
           </li>
           <li class="Header-item">
             <a class="Header-link Link-overline" href="#Portfolio">
+              <span class="sr-only">Link to scroll to</span>
               <span class="Header-text">
                 Portfolio
               </span>
+              <span class="sr-only">section</span>
             </a>
           </li>
           <li class="Header-item">
             <a class="Header-link Link-overline" href="#About">
+              <span class="sr-only">Link to scroll to</span>
               <span class="Header-text">
                 About
               </span>
+              <span class="sr-only">section</span>
             </a>
           </li>
           <li class="Header-item">
             <a class="Header-link Link-overline" href="#Resume">
+              <span class="sr-only">Link to scroll to</span>
               <span class="Header-text">
                 Resume
               </span>
+              <span class="sr-only">section</span>
             </a>
           </li>
         </ul>
@@ -67,6 +75,8 @@
     <main class="Main">
       <section class="Info Section" id="Info">
         <div class="Info-bio">
+          <link href="https://taylorbirdsall.com/images/bio-photo.jpeg" itemprop="image">
+          <link href="https://taylorbirdsall.com" itemprop="url">
           <div class="Info-bioOuter">
             <div class="Info-bioCircle"></div>
           </div>
@@ -86,7 +96,7 @@
                 <h3 class="Info-descriptionTitle Heading-minor">
                   About Me
                 </h3>
-                <p class="Info-descriptionText">
+                <p class="Info-descriptionText" itemprop="description">
                   Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
                 </p>
               </div>
@@ -131,8 +141,11 @@
                     <h4 class="Details-title">
                       Email
                     </h4>
-                    <a href="mailto:tbirdsall12@gmail.com" class="Details-email Link-underline">
-                      tbirdsall12@gmail.com
+                    <a href="mailto:tbirdsall12@gmail.com"
+                       class="Details-email Link-underline">
+                      <span itemprop="email">
+                        tbirdsall12@gmail.com
+                      </span>
                     </a>
                   </div>
                   <div class="Details-item">
@@ -143,7 +156,9 @@
                       <div class="Phone-desktop l-hidden-xs">
                         919-793-4528
                       </div>
-                      <a href="tel:9197934528" class="Phone-mobile l-visible-xs">
+                      <a href="tel:9197934528"
+                         class="Phone-mobile l-visible-xs"
+                         itemprop="telephone">
                         919-793-4528
                       </a>
                     </div>
@@ -200,13 +215,10 @@
                 Industry Leading SEO - full schema markup tested on Google Structured Data Testing Tool - <a class="Link Link-underline" href="https://search.google.com/structured-data/testing-tool/u/0/#url=taylorbirdsall.github.io">Google SDTT</a>
               </li>
               <li class="About-listItem">
-                90 score on Google PageSpeed Insights - <a class="Link Link-underline" href="https://developers.google.com/speed/pagespeed/insights/?url=taylorbirdsall.github.io&tab=desktop">Google PSI</a>
-                <br>
-                <br>
-                *NOTE - Score could be even higher, but chose to leave main CSS file as render blocking (for UX reasons) and currently cannot control the Cache-Control headers on Github and Google served assets
+                98 score on Google PageSpeed Insights - <a class="Link Link-underline" href="https://developers.google.com/speed/pagespeed/insights/?url=taylorbirdsall.github.io&tab=desktop">Google PSI</a>
               </li>
               <li class="About-listItem">
-                Thanks to GitHub Pages - using HTTP2 protocol, and GZIP compression (NGINX)
+                CDN/DNS control allows for the following page improvements - HTTP/2, GZIP compression, SSL, HSTS, long cache-control headers
               </li>
             </ul>
           </li>
@@ -364,9 +376,12 @@
             Experience
           </h3>
           <div class="Experience-wrapper">
-            <div class="Experience-details">
+            <div class="Experience-details"
+                 itemprop="affiliation"
+                 itemscope
+                 itemtype="http://schema.org/Organization">
               <div class="Experience-name">
-                <div class="Experience-company">
+                <div class="Experience-company" itemprop="name">
                   Yext
                 </div>
                 <div class="Experience-role">
@@ -374,8 +389,13 @@
                 </div>
               </div>
               <div class="Experience-time">
-                <div class="Experience-location">
-                  Tyson's Corner, VA
+                <div class="Experience-location"
+                     itemprop="location"
+                     itemscope
+                     itemtype="http://schema.org/Place">
+                  <span itemprop="name">
+                    Tyson's Corner, VA
+                  </span>
                 </div>
                 <div class="Experience-duration">
                   May 2015 - Present
@@ -628,14 +648,18 @@
             </div>
           </div>
         </div>
-        <div class="Experience Section-mini">
+        <div class="Experience Section-mini"
+             itemprop="alumniOf"
+             itemscope
+             itemtype="http://schema.org/CollegeOrUniversity">
           <h3 class="Experience-title Heading-minor Heading--light Heading--underline">
             Education
           </h3>
           <div class="Experience-wrapper">
             <div class="Experience-details">
               <div class="Experience-name">
-                <div class="Experience-company">
+                <div class="Experience-company"
+                     itemprop="name">
                   Johns Hopkins
                 </div>
                 <div class="Experience-role">
@@ -649,6 +673,7 @@
                 <div class="Experience-duration">
                   August 2012 - May 2016
                 </div>
+                <link itemprop="sameAs" href="https://www.jhu.edu/" />
               </div>
             </div>
             <div class="Experience-info">

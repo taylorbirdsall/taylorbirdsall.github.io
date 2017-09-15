@@ -1,12 +1,17 @@
 // Third party libraries
 import 'babel-polyfill';
-import $ from 'jquery';
 
 // Internal modules
 import Header from './modules/Header';
 
-$(document).ready(function() {
+let run = function() {
+  Header.init();
+}
 
-  new Header();
-
-});
+if (document.readyState === "complete"
+     || document.readyState === "loaded"
+     || document.readyState === "interactive") {
+  run();
+} else {
+  document.addEventListener('DOMContentLoaded', run);
+}

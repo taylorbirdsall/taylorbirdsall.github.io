@@ -13,6 +13,10 @@
     right: toRem(100px);
   }
 
+  margin-top: -$header-size;
+  border-top: $header-size solid transparent;    
+  background-clip: padding-box;
+
   &-mini
   {
     padding: {

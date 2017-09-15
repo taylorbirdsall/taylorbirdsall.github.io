@@ -49,6 +49,17 @@ address {
   .l-visible-xs {
     display: none; } }
 
+.sr-only {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  margin: -0.0625rem;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  white-space: nowrap; }
+
 .Main {
   margin-top: 5rem;
   background-color: white; }
@@ -372,7 +383,10 @@ address {
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
   padding-left: 6.25rem;
-  padding-right: 6.25rem; }
+  padding-right: 6.25rem;
+  margin-top: -5rem;
+  border-top: 5rem solid transparent;
+  background-clip: padding-box; }
   .Section-mini {
     padding-bottom: 1.875rem; }
 
