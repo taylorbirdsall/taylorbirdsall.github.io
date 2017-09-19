@@ -8,13 +8,22 @@ export default class Header
     this.headerEl = document.getElementById('Header');
     this.headerHeight = this.headerEl.offsetHeight;
     this.menuLinks = document.querySelectorAll('.Header-link');
+    this.mobileButtonEl = document.getElementById('Header-menuIcon');
+
+    this.firstFocusEl = this.mobileButtonEl;
+    this.lastFocusEl = document.querySelector('.Header-item:last-child .Header-link');
+    this.focusTrapIsSetup = false;
+
     this.setUpSmoothScroll();
+    this.setUpMobile();
   }
 
   setUpSmoothScroll() {
     let that = this;
     for (const menuLink of this.menuLinks) {
       menuLink.addEventListener('click', function(e) {
+        that.headerEl.classList.toggle('open');
+
         let isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
         if (isSafari) {e.preventDefault();};
         const targetSection = document.getElementById(this.hash.substring(1));
@@ -42,6 +51,7 @@ export default class Header
     const windowHeight = window.innerHeight || document.documentElement.clientHeight || document.getElementsByTagName('body')[0].clientHeight;
     const destinationOffset = destination.offsetTop;
     const destinationOffsetToScroll = Math.round(documentHeight - destinationOffset < windowHeight ? documentHeight - windowHeight : destinationOffset);
+
     if ('requestAnimationFrame' in window === false) {
       window.scroll(0, destinationOffsetToScroll);
       if (callback) {
@@ -71,5 +81,53 @@ export default class Header
     }
 
     scroll();
+  }
+
+  setUpMobile() {
+    if (this.checkMediaQuery()) {
+      this.setTabIndex(-1);
+    }
+
+    // TODO: maybe use optimized resize
+
+    this.mobileButtonEl.addEventListener('click', () => {
+      this.headerEl.classList.toggle('open');
+
+      if (this.headerEl.classList.contains('open')) {
+        this.setTabIndex(0);
+
+        if (!this.focusTrapIsSetup) {
+          this.setUpFocusTrap();
+        }
+      } else {
+        if (this.checkMediaQuery()) {
+          this.setTabIndex(-1);
+        }
+      }
+    });
+  }
+
+  setUpFocusTrap() {
+    this.lastFocusEl.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab' || e.keyCode === 9) {
+        e.preventDefault();
+
+        if (this.checkMediaQuery()) {
+          this.firstFocusEl.focus();
+        }
+      }
+    });
+
+    this.focusTrapIsSetup = true;
+  }
+
+  setTabIndex(index) {
+    for (let link of document.querySelectorAll('.Header-link')) {
+      link.tabIndex = index;
+    }
+  }
+
+  checkMediaQuery() {
+    return window.matchMedia("(max-width: 787px)").matches;
   }
 }

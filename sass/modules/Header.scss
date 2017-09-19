@@ -7,13 +7,18 @@
 
   display: flex;
 
-  height: $header-size;
+  height: $header-size-xs;
 
   background-color: $blue-1;
 
   z-index: 3;
 
-  box-shadow: 0 1px 5px rgba(10, 10, 10, 0.2);
+  @include bpgte(sm)
+  {
+    height: $header-size;
+
+    box-shadow: $box-shadow;
+  }
 
   &-menu
   {
@@ -22,15 +27,107 @@
     justify-content: flex-end;
   }
 
+  &-menuIcon
+  {
+    position: relative;
+
+    height: toRem(25px);
+    width: toRem(35px);
+  }
+
+  &-menuBar
+  {
+    display: block;
+
+    position: absolute;
+    left: 0;
+
+    height: toRem(3px);
+    width: 100%;
+
+    background: white;
+    border-radius: 0px;
+
+    opacity: 1;
+
+    transform: rotate(0deg);
+    transition: 300ms ease-in-out;
+
+    &:nth-child(1) {
+      top: 0;
+    }
+
+    &:nth-child(2), &:nth-child(3) {
+      top: toRem(8px);
+    }
+
+    &:nth-child(4) {
+      top: toRem(16px);
+    }
+  }
+
+  &-mobile
+  {
+    @include bplte(xs)
+    {
+      position: fixed;
+      top: toRem(10px);
+      left: toRem(10px);
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      height: toRem(50px);
+      width: toRem(50px);
+
+      background-color: $red-1;
+      border-radius: 50%;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 10px, rgba(0, 0, 0, 0.23) 0px 3px 10px;
+
+      z-index: 4;
+
+      position: fixed;
+    }
+  }
+
   &-list
   {
     display: flex;
     align-items: center;
+
+    @include bplte(xs)
+    {
+      position: fixed;
+      top: toRem(45px);
+      left: toRem(30px);
+      right: toRem(30px);
+
+      max-height: 0;
+
+      flex-direction: column;
+
+      background-color: $blue-1;
+      box-shadow: $box-shadow;
+
+      overflow: hidden;
+
+      transition: max-height 300ms ease-in-out;
+    }
   }
 
   &-item
   {
-    padding-right: toRem(30px);
+    @include bplte(xs)
+    {
+      padding-top: toRem(15px);
+      padding-bottom: toRem(15px);
+    }
+
+    @include bpgte(sm)
+    {
+      padding-right: toRem(30px);
+    }
   }
 
   &-text
@@ -41,5 +138,36 @@
   &-link
   {
     padding: toRem(7px);
+  }
+
+  &.open
+  {
+    @include bplte(xs)
+    {
+      .Header-list
+      {
+        max-height: 300px;
+      }
+
+      .Header-menuBar
+      {
+        &:nth-child(1), &:nth-child(4)
+        {
+          top: toRem(8px);
+          width: 0%;
+          left: 50%;
+        }
+
+        &:nth-child(2)
+        {
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(3)
+        {
+          transform: rotate(-45deg);
+        }
+      }
+    }
   }
 }

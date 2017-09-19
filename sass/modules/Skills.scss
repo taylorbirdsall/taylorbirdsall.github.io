@@ -19,6 +19,7 @@
       left: toRem(10px);
       right: toRem(10px);
     }
+
     margin: {
       right: toRem(10px);
       bottom: toRem(15px);
@@ -27,6 +28,11 @@
     cursor: pointer;
 
     @include float-shadow;
+
+    @include bplte(xs)
+    {
+      font-size: toRem(14px);
+    }
   }
 
   &-categoryTitle

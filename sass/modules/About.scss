@@ -23,32 +23,47 @@
 
   &-item
   {
-    flex-basis: 50%;
+    flex-basis: 100%;
 
-    width: 50%;
-    min-width: 50%;
+    width: 100%;
+    min-width: 100%;
 
-    margin-bottom: toRem(30px);
+    margin-bottom: toRem(20px);
 
     box-sizing: border-box;
 
-    &:nth-child(even)
+    @include bpgte(sm)
     {
-      padding-left: toRem(15px)
-    }
+      flex-basis: 50%;
 
-    &:nth-child(odd)
-    {
-      padding-right: toRem(15px)
+      width: 50%;
+      min-width: 50%;
+
+      margin-bottom: toRem(30px);
+
+      &:nth-child(even)
+      {
+        padding-left: toRem(15px)
+      }
+
+      &:nth-child(odd)
+      {
+        padding-right: toRem(15px)
+      }
     }
   }
 
   &-description
   {
-    max-width: 75%;
+    width: 100%;
 
     margin-bottom: toRem(30px);
 
     text-align: center;
+
+    @include bpgte(sm)
+    {
+      width: 75%;
+    }
   }
 }

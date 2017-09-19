@@ -31,6 +31,19 @@
 
     <header class="Header" id="Header">
       <div class="Header-menu">
+        <div class="Header-mobile l-visible-xs">
+          <button name="Header-menuButton"
+                  class="Header-menuIcon"
+                  id="Header-menuIcon">
+            <span class="Header-menuBar"></span>
+            <span class="Header-menuBar"></span>
+            <span class="Header-menuBar"></span>
+            <span class="Header-menuBar"></span>
+            <span class="sr-only">
+              Mobile menu expand button
+            </span>
+          </button>
+        </div>
         <ul class="Header-list">
           <li class="Header-item">
             <a class="Header-link Link-overline" href="#Info">
@@ -113,23 +126,27 @@
                              itemscope=""
                              itemtype="http://schema.org/PostalAddress"
                              itemprop="address">
-                      <span class="Address-street" itemprop="streetAddress">
-                        <span class="Address-street1">8231 Crestwood Heights Dr. </span>
-                      </span>
-                      <span class="Address-city">
-                        <span itemprop="addressLocality">McLean</span>
-                        <span class="Address-cityComma">,</span>
-                      </span>
-                      <abbr class="Address-state"
-                            title="Virginia"
-                            aria-label="Virginia"
-                            itemprop="addressRegion">
-                        VA
-                      </abbr>
-                      <span class="Address-postalCode" itemprop="postalCode">
-                        22102
-                      </span>
-                      <abbr class="Address-country"
+                      <div class="Address-line">
+                        <span class="Address-street" itemprop="streetAddress">
+                          <span class="Address-street1">8231 Crestwood Heights Dr. </span>
+                        </span>
+                      </div>
+                      <div class="Address-line">
+                        <span class="Address-city">
+                          <span itemprop="addressLocality">McLean</span>
+                          <span class="Address-cityComma">,</span>
+                        </span>
+                        <abbr class="Address-state"
+                              title="Virginia"
+                              aria-label="Virginia"
+                              itemprop="addressRegion">
+                          VA
+                        </abbr>
+                        <span class="Address-postalCode" itemprop="postalCode">
+                          22102
+                        </span>
+                      </div>
+                      <abbr class="Address-country sr-only"
                             title="United States"
                             aria-label="United States"
                             itemprop="addressCountry">
@@ -202,7 +219,7 @@
                 Modular SASS structure with SUIT naming methodology
               </li>
               <li class="About-listItem">
-                Aside from smooth scrolling funcitonality (jQuery preferred due to browser support), no javascript libraries or use of jQuery in code.
+                Zero frameworks or third-party libraries (no jQuery or Bootstrap!)
               </li>
             </ul>
           </li>

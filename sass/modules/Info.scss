@@ -6,19 +6,32 @@
     justify-content: center;
     align-items: center;
 
-    padding-bottom: toRem(30px);
+    padding-bottom: toRem(20px);
+
+    @include bpgte(sm)
+    {
+      padding-bottom: toRem(30px);
+    }
   }
 
   &-bioCircle
   {
-    width: toRem(180px);
-    height: toRem(180px);
+    width: toRem(100px);
+    height: toRem(100px);
 
     background-image: url($image-path + '/bio-photo.jpeg');
     background-size: cover;
 
-    border: 10px solid $gray-1;
+    border: toRem(5px) solid $gray-1;
     border-radius: 50%;
+
+    @include bpgte(sm)
+    {
+      width: toRem(180px);
+      height: toRem(180px);
+
+      border-width: toRem(10px);
+    }
   }
 
   &-bioOuter
@@ -27,10 +40,16 @@
     justify-content: center;
     align-items: center;
 
-    width: toRem(200px);
-    height: toRem(200px);
+    width: toRem(110px);
+    height: toRem(110px);
 
     @include reveal;
+
+    @include bpgte(sm)
+    {
+      width: toRem(200px);
+      height: toRem(200px);
+    }
   }
 
   &-contentWrapper
@@ -50,10 +69,16 @@
 
     text-align: center;
 
-    padding-bottom: toRem(30px);
-    margin-bottom: toRem(30px);
+    padding-bottom: toRem(20px);
+    margin-bottom: toRem(20px);
 
     border-bottom: 1px solid $gray-1;
+
+    @include bpgte(sm)
+    {
+      padding-bottom: toRem(30px);
+      margin-bottom: toRem(30px);
+    }
   }
 
   &-titleMain
@@ -61,7 +86,7 @@
     padding-bottom: toRem(10px);
     margin: 0;
 
-    @include font-sizes(50px, 1);
+    @include font-sizes(50px, 1, 35px, 1);
     text-transform: uppercase;
   }
 
@@ -73,22 +98,43 @@
   &-about
   {
     display: flex;
+
+    @include bplte(xs)
+    {
+      flex-direction: column;
+    }
   }
 
   &-description, &-contact
   {
-    width: 50%;
+    width: 100%;
 
-    flex-shrink: 0;
+    @include bpgte(sm)
+    {
+      width: 50%;
+
+      flex-shrink: 0;
+    }
   }
 
   &-description
   {
-    padding-right: toRem(30px);
+    @include bplte(xs)
+    {
+      padding-bottom: toRem(20px);
+    }
+
+    @include bpgte(sm)
+    {
+      padding-right: toRem(30px);
+    }
   }
 
   &-contact
   {
-    padding-left: toRem(30px);
+    @include bpgte(sm)
+    {
+      padding-left: toRem(30px);
+    }
   }
 }

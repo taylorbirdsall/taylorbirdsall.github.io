@@ -1,6 +1,15 @@
 .Main
 {
-  margin-top: $header-size;
-  
+  margin-top: $header-size-xs;
+
   background-color: $white;
+
+  font-size: toRem(14px);
+
+  @include bpgte(sm)
+  {
+    font-size: toRem(16px);
+
+    margin-top: $header-size;
+  }
 }

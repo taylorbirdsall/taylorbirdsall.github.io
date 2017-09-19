@@ -1,22 +1,7 @@
 .Address
 {
-  &-Wrapper
-  {
-    display: flex;
-  }
-
-  &-Street
-  {
-    display: flex;
-  }
-
-  &-City
+  &-city
   {
     display: inline-flex;
-  }
-
-  &-Country
-  {
-    display: none;
   }
 }

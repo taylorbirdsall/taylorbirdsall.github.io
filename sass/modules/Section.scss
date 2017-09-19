@@ -7,15 +7,41 @@
   min-height: calc(100vh - #{$header-size});
 
   padding: {
-    top: toRem(40px);
-    bottom: toRem(40px);
-    left: toRem(100px);
-    right: toRem(100px);
+    top: toRem(30px);
+    bottom: toRem(30px);
+    left: toRem(15px);
+    right: toRem(15px);
   }
 
-  margin-top: -$header-size;
-  border-top: $header-size solid transparent;    
+  margin-top: -$header-size-xs;
+  border-top: $header-size-xs solid transparent;
   background-clip: padding-box;
+
+  @include bpgte(sm)
+  {
+    margin-top: -$header-size;
+    border-top-width: $header-size;
+  }
+
+  @include bp(sm, sm)
+  {
+    padding: {
+      top: toRem(30px);
+      bottom: toRem(30px);
+      left: toRem(30px);
+      right: toRem(30px);
+    }
+  }
+
+  @include bpgte(md)
+  {
+    padding: {
+      top: toRem(40px);
+      bottom: toRem(40px);
+      left: toRem(100px);
+      right: toRem(100px);
+    }
+  }
 
   &-mini
   {

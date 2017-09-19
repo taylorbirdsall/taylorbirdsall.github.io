@@ -120,13 +120,19 @@
 @mixin sr-only()
 {
   position: absolute;
+
   width: toRem(1px);
   height: toRem(1px);
-  margin: toRem(-1px);
+
   padding: 0;
+  margin: toRem(-1px);
+
   overflow: hidden;
+
   clip: rect(0,0,0,0);
+
   border: 0;
+
   white-space: nowrap;
 }
 
@@ -159,13 +165,17 @@
 
   &:hover
   {
-    color: $color;
-  }
+    @include bpgte(sm)
+    {
+      color: $color;
 
-  &:hover::before
-  {
-    visibility: visible;
-    transform: scaleX(1);
+      &::before
+      {
+        visibility: visible;
+
+        transform: scaleX(1);
+      }
+    }
   }
 }
 
@@ -193,51 +203,58 @@
 
   &:hover
   {
-    color: $color;
-
-    &::after
+    @include bpgte(sm)
     {
-      width: 100%;
+      color: $color;
+
+      &::after
+      {
+        width: 100%;
+      }
     }
   }
 }
 
 @mixin link-overline
 {
-  &::before, &::after
-  {
-    content: '';
-
-    position: absolute;
-    top: 100%;
-    left: 0;
-
-    width: 100%;
-    height: toRem(3px);
-
-    background: $gray-1;
-
-    transform: scale(0.85);
-    transition: transform 300ms ease;
-  }
-
-  &::after
-  {
-    opacity: 0;
-    transition: top 300ms ease, opacity 300ms ease, transform 300ms ease;
-  }
-
-  &:hover
+  @include bpgte(sm)
   {
     &::before, &::after
     {
-      transform: scale(1);
+      content: '';
+
+      position: absolute;
+      top: 100%;
+      left: 0;
+
+      width: 100%;
+      height: toRem(3px);
+
+      background: $gray-1;
+
+      transform: scale(0.85);
+      transition: transform 300ms ease;
     }
 
     &::after
     {
-      top: 0%;
-      opacity: 1;
+      opacity: 0;
+
+      transition: top 300ms ease, opacity 300ms ease, transform 300ms ease;
+    }
+
+    &:hover
+    {
+      &::before, &::after
+      {
+        transform: scale(1);
+      }
+
+      &::after
+      {
+        top: 0%;
+        opacity: 1;
+      }
     }
   }
 }
@@ -293,35 +310,46 @@
 
 	&:hover,
 	&:focus,
-	&:active {
+	&:active
+  {
     box-shadow: 0 0 0 0;
+
 		transform: translateY(-5px);
 
-		&:before {
+		&::before
+    {
 			opacity: 1;
+
 			transform: translateY(5px);
 		}
 	}
 }
 
 @mixin reveal {
-  transform: perspective(1px) translateZ(0);
+  position: relative;
+
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-	position: relative;
-	overflow: hidden;
+
+  overflow: hidden;
+
+  transform: perspective(1px) translateZ(0);
 
 	&:before {
 		content: "";
-		position: absolute;
-		z-index: 0;
-		left: 0px;
-		right: 0px;
+
+    position: absolute;
+    left: 0px;
+    right: 0px;
 		top: 0px;
 		bottom: 0px;
+
+    z-index: 0;
+
 		border-color: $blue-1;
 		border-style: solid;
 		border-width: 0;
     border-radius: 50%;
+
 		transition-property: border-width;
 		transition-duration: 0.3s;
 		transition-timing-function: linear;
@@ -329,11 +357,21 @@
 
 	&:hover,
 	&:focus,
-	&:active {
+	&:active
+  {
+    @include bpgte(sm)
+    {
+      &::before
+      {
+  			border-width: toRem(5px);
 
-		&:before {
-			transform: translateY(0);
-			border-width: 10px;
-		}
+        transform: translateY(0);
+
+        @include bpgte(sm)
+        {
+          border-width: toRem(10px);
+        }
+  		}
+    }
 	}
 }
