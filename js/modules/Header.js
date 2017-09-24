@@ -5,6 +5,7 @@ export default class Header
   }
 
   constructor() {
+    this.bodyEl = document.body;
     this.headerEl = document.getElementById('Header');
     this.headerHeight = this.headerEl.offsetHeight;
     this.menuLinks = document.querySelectorAll('.Header-link');
@@ -15,6 +16,7 @@ export default class Header
     this.focusTrapIsSetup = false;
 
     this.setUpSmoothScroll();
+    this.setUpMenuTransitions();
     this.setUpMobile();
   }
 
@@ -83,8 +85,35 @@ export default class Header
     scroll();
   }
 
+  setUpMenuTransitions() {
+    if (document.body.scrollTop > 10) {
+      this.setHeaderClass();
+    }
+
+    window.addEventListener('scroll', () => {
+      const topScrollVal = document.body.scrollTop;
+      if (!this.checkHeaderClass() && topScrollVal > 10) {
+        this.setHeaderClass();
+      } else if (topScrollVal <= 10 && this.checkHeaderClass()) {
+        this.removeHeaderClass();
+      }
+    });
+  }
+
+  checkHeaderClass() {
+    return this.headerEl.classList.contains('hasScrolled');
+  }
+
+  setHeaderClass() {
+    this.headerEl.classList.add('hasScrolled');
+  }
+
+  removeHeaderClass() {
+    this.headerEl.classList.remove('hasScrolled');
+  }
+
   setUpMobile() {
-    if (this.checkMediaQuery()) {
+    if (this.isMobile()) {
       this.setTabIndex(-1);
     }
 
@@ -92,6 +121,7 @@ export default class Header
 
     this.mobileButtonEl.addEventListener('click', () => {
       this.headerEl.classList.toggle('open');
+      this.bodyEl.classList.toggle('noScroll');
 
       if (this.headerEl.classList.contains('open')) {
         this.setTabIndex(0);
@@ -100,7 +130,7 @@ export default class Header
           this.setUpFocusTrap();
         }
       } else {
-        if (this.checkMediaQuery()) {
+        if (this.isMobile()) {
           this.setTabIndex(-1);
         }
       }
@@ -112,7 +142,7 @@ export default class Header
       if (e.key === 'Tab' || e.keyCode === 9) {
         e.preventDefault();
 
-        if (this.checkMediaQuery()) {
+        if (this.isMobile()) {
           this.firstFocusEl.focus();
         }
       }
@@ -127,7 +157,7 @@ export default class Header
     }
   }
 
-  checkMediaQuery() {
+  isMobile() {
     return window.matchMedia("(max-width: 787px)").matches;
   }
 }

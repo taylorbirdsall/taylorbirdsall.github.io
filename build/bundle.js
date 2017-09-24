@@ -3335,6 +3335,7 @@ var Header = function () {
   function Header() {
     _classCallCheck(this, Header);
 
+    this.bodyEl = document.body;
     this.headerEl = document.getElementById('Header');
     this.headerHeight = this.headerEl.offsetHeight;
     this.menuLinks = document.querySelectorAll('.Header-link');
@@ -3345,6 +3346,7 @@ var Header = function () {
     this.focusTrapIsSetup = false;
 
     this.setUpSmoothScroll();
+    this.setUpMenuTransitions();
     this.setUpMobile();
   }
 
@@ -3443,26 +3445,62 @@ var Header = function () {
       scroll();
     }
   }, {
-    key: 'setUpMobile',
-    value: function setUpMobile() {
+    key: 'setUpMenuTransitions',
+    value: function setUpMenuTransitions() {
       var _this = this;
 
-      if (this.checkMediaQuery()) {
+      if (document.body.scrollTop > 10) {
+        this.setHeaderClass();
+      }
+
+      window.addEventListener('scroll', function () {
+        var topScrollVal = document.body.scrollTop;
+        if (!_this.checkHeaderClass() && topScrollVal > 10) {
+          _this.setHeaderClass();
+        } else if (topScrollVal <= 10 && _this.checkHeaderClass()) {
+          _this.removeHeaderClass();
+        }
+      });
+    }
+  }, {
+    key: 'checkHeaderClass',
+    value: function checkHeaderClass() {
+      return this.headerEl.classList.contains('hasScrolled');
+    }
+  }, {
+    key: 'setHeaderClass',
+    value: function setHeaderClass() {
+      this.headerEl.classList.add('hasScrolled');
+    }
+  }, {
+    key: 'removeHeaderClass',
+    value: function removeHeaderClass() {
+      this.headerEl.classList.remove('hasScrolled');
+    }
+  }, {
+    key: 'setUpMobile',
+    value: function setUpMobile() {
+      var _this2 = this;
+
+      if (this.isMobile()) {
         this.setTabIndex(-1);
       }
 
+      // TODO: maybe use optimized resize
+
       this.mobileButtonEl.addEventListener('click', function () {
-        _this.headerEl.classList.toggle('open');
+        _this2.headerEl.classList.toggle('open');
+        _this2.bodyEl.classList.toggle('noScroll');
 
-        if (_this.headerEl.classList.contains('open')) {
-          _this.setTabIndex(0);
+        if (_this2.headerEl.classList.contains('open')) {
+          _this2.setTabIndex(0);
 
-          if (!_this.focusTrapIsSetup) {
-            _this.setUpFocusTrap();
+          if (!_this2.focusTrapIsSetup) {
+            _this2.setUpFocusTrap();
           }
         } else {
-          if (_this.checkMediaQuery()) {
-            _this.setTabIndex(-1);
+          if (_this2.isMobile()) {
+            _this2.setTabIndex(-1);
           }
         }
       });
@@ -3470,14 +3508,14 @@ var Header = function () {
   }, {
     key: 'setUpFocusTrap',
     value: function setUpFocusTrap() {
-      var _this2 = this;
+      var _this3 = this;
 
       this.lastFocusEl.addEventListener('keydown', function (e) {
         if (e.key === 'Tab' || e.keyCode === 9) {
           e.preventDefault();
 
-          if (_this2.checkMediaQuery()) {
-            _this2.firstFocusEl.focus();
+          if (_this3.isMobile()) {
+            _this3.firstFocusEl.focus();
           }
         }
       });
@@ -3513,8 +3551,8 @@ var Header = function () {
       }
     }
   }, {
-    key: 'checkMediaQuery',
-    value: function checkMediaQuery() {
+    key: 'isMobile',
+    value: function isMobile() {
       return window.matchMedia("(max-width: 787px)").matches;
     }
   }]);
