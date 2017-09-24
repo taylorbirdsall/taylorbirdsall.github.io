@@ -17,4 +17,14 @@
 .sr-only
 {
   @include sr-only();
+
+  &--white
+  {
+    color: white;
+  }
+
+  &--black
+  {
+    color: black;
+  }
 }

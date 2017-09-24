@@ -59,7 +59,10 @@
     justify-content: center;
     align-items: center;
 
-    width: 80vw;
+    @include bpgte(sm)
+    {
+      width: 80vw;
+    }
   }
 
   &-title
@@ -78,6 +81,10 @@
     {
       padding-bottom: toRem(30px);
       margin-bottom: toRem(30px);
+
+      opacity: 0;
+
+      transform: translate3d(0, -25px, 0);
     }
   }
 
@@ -127,6 +134,10 @@
     @include bpgte(sm)
     {
       padding-right: toRem(30px);
+
+      opacity: 0;
+
+      transform: translate3d(-50px, 0, 0);
     }
   }
 
@@ -135,6 +146,40 @@
     @include bpgte(sm)
     {
       padding-left: toRem(30px);
+
+      opacity: 0;
+
+      transform: translate3d(50px, 0, 0);
+    }
+  }
+}
+
+.startAnimation
+{
+  @include bpgte(sm)
+  {
+    .Info-description, .Info-contact, .Info-title
+    {
+      opacity: 1;
+
+      transform: translate3d(0, 0, 0);
+
+      transition: transform 700ms ease, opacity 500ms ease;
+    }
+
+    .Info-title
+    {
+      transition-delay: 1000ms;
+    }
+
+    .Info-description
+    {
+      transition-delay: 1200ms;
+    }
+
+    .Info-contact
+    {
+      transition-delay: 1400ms;
     }
   }
 }

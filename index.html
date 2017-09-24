@@ -39,7 +39,7 @@
             <span class="Header-menuBar"></span>
             <span class="Header-menuBar"></span>
             <span class="Header-menuBar"></span>
-            <span class="sr-only">
+            <span class="sr-only sr-only--white">
               Mobile menu expand button
             </span>
           </button>
@@ -47,38 +47,38 @@
         <ul class="Header-list">
           <li class="Header-item">
             <a class="Header-link Link-overline" href="#Info">
-              <span class="sr-only">Link to scroll to</span>
+              <span class="sr-only sr-only--white">Link to scroll to</span>
               <span class="Header-text">
                 Info
               </span>
-              <span class="sr-only">section</span>
+              <span class="sr-only sr-only--white">section</span>
             </a>
           </li>
           <li class="Header-item">
             <a class="Header-link Link-overline" href="#Portfolio">
-              <span class="sr-only">Link to scroll to</span>
+              <span class="sr-only sr-only--white">Link to scroll to</span>
               <span class="Header-text">
                 Portfolio
               </span>
-              <span class="sr-only">section</span>
+              <span class="sr-only sr-only--white">section</span>
             </a>
           </li>
           <li class="Header-item">
             <a class="Header-link Link-overline" href="#About">
-              <span class="sr-only">Link to scroll to</span>
+              <span class="sr-only sr-only--white">Link to scroll to</span>
               <span class="Header-text">
                 About
               </span>
-              <span class="sr-only">section</span>
+              <span class="sr-only sr-only--white">section</span>
             </a>
           </li>
           <li class="Header-item">
             <a class="Header-link Link-overline" href="#Resume">
-              <span class="sr-only">Link to scroll to</span>
+              <span class="sr-only sr-only--white">Link to scroll to</span>
               <span class="Header-text">
                 Resume
               </span>
-              <span class="sr-only">section</span>
+              <span class="sr-only sr-only--white">section</span>
             </a>
           </li>
         </ul>
@@ -87,16 +87,16 @@
 
     <main class="Main">
       <section class="Info Section" id="Info">
-        <div class="Info-bio">
-          <link href="https://taylorbirdsall.com/images/bio-photo.jpeg" itemprop="image">
-          <link href="https://taylorbirdsall.com" itemprop="url">
-          <div class="Info-bioOuter">
-            <div class="Info-bioCircle"></div>
-          </div>
-        </div>
         <div class="Info-contentWrapper">
           <div class="Info-content">
             <div class="Info-title">
+              <div class="Info-bio">
+                <link href="https://taylorbirdsall.com/images/bio-photo.jpeg" itemprop="image">
+                <link href="https://taylorbirdsall.com" itemprop="url">
+                <div class="Info-bioOuter">
+                  <div class="Info-bioCircle"></div>
+                </div>
+              </div>
               <h1 class="Info-titleMain" itemprop="name">
                 Taylor Birdsall
               </h1>
@@ -110,6 +110,7 @@
                   About Me
                 </h3>
                 <p class="Info-descriptionText" itemprop="description">
+                  <!-- Maybe leadership stuff here -->
                   Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.
                 </p>
               </div>
@@ -191,6 +192,19 @@
         <h2 class="Portfolio-title Heading-major Heading--light">
           Portfolio
         </h2>
+
+        <!--
+          Farmers - form/functionality, wcag, click stats, # of agents
+          Taco Bell - site design, stats on clicks, maybe $$ benefit to Yext
+          Massage Envy - design/form, click + form stats
+          Willamette - design, reviews integration, featured on @rose's link
+          Comcast - web components, huge $ deal, design
+
+          Maybe:
+          Oakley - site design
+          WWG - complex directory filtering
+          Qdoba - site design
+        -->
       </section>
 
       <section class="About Section" id="About">
@@ -218,7 +232,7 @@
               <li class="About-listItem">
                 Modular SASS structure with SUIT naming methodology
               </li>
-              <li class="About-listItem">
+              <li class="About-listItem About-listItem--green">
                 Zero frameworks or third-party libraries (no jQuery or Bootstrap!)
               </li>
             </ul>
@@ -231,7 +245,7 @@
               <li class="About-listItem">
                 Industry Leading SEO - full schema markup tested on Google Structured Data Testing Tool - <a class="Link Link-underline" href="https://search.google.com/structured-data/testing-tool/u/0/#url=taylorbirdsall.github.io">Google SDTT</a>
               </li>
-              <li class="About-listItem">
+              <li class="About-listItem About-listItem--green">
                 98 score on Google PageSpeed Insights - <a class="Link Link-underline" href="https://developers.google.com/speed/pagespeed/insights/?url=taylorbirdsall.github.io&tab=desktop">Google PSI</a>
               </li>
               <li class="About-listItem">
@@ -263,7 +277,7 @@
               <li class="About-listItem">
                 Modern, flat, simplistic design
               </li>
-              <li class="About-listItem">
+              <li class="About-listItem About-listItem--green">
                 All animations built with purely CSS
               </li>
               <li class="About-listItem">
@@ -585,16 +599,16 @@
                   </ul>
                 </li>
                 <li class="Experience-item">
-                  Other:
+                  Leadership:
                   <ul class="Experience-sublist">
                     <li class="Experience-subitem">
                       Lead complete revamp of project handoff process between developers, designers, and product managers
                     </li>
                     <li class="Experience-subitem">
-                      Engineering team recruiter
+                      Engineering team recruiter, Yext representative at UVA, JHU, UPenn career fairs / on grounds interviews
                     </li>
                     <li class="Experience-subitem">
-                      Improved the training process for new hires
+                      Leading contributor to new hire training process
                     </li>
                   </ul>
                 </li>

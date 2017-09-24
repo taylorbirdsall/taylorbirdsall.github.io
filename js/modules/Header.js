@@ -25,6 +25,7 @@ export default class Header
     for (const menuLink of this.menuLinks) {
       menuLink.addEventListener('click', function(e) {
         that.headerEl.classList.toggle('open');
+        document.body.classList.remove('noScroll');
 
         let isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
         if (isSafari) {e.preventDefault();};
@@ -87,29 +88,33 @@ export default class Header
 
   setUpMenuTransitions() {
     if (document.body.scrollTop > 10) {
-      this.setHeaderClass();
+      this.setHeaderClass('hasScrolled');
     }
+
+    window.setTimeout(() => {
+        document.body.classList.add('startAnimation');
+    }, 1);
 
     window.addEventListener('scroll', () => {
       const topScrollVal = document.body.scrollTop;
-      if (!this.checkHeaderClass() && topScrollVal > 10) {
-        this.setHeaderClass();
-      } else if (topScrollVal <= 10 && this.checkHeaderClass()) {
-        this.removeHeaderClass();
+      if (!this.checkHeaderClass('hasScrolled') && topScrollVal > 10) {
+        this.setHeaderClass('hasScrolled');
+      } else if (topScrollVal <= 10 && this.checkHeaderClass('hasScrolled')) {
+        this.removeHeaderClass('hasScrolled');
       }
     });
   }
 
-  checkHeaderClass() {
-    return this.headerEl.classList.contains('hasScrolled');
+  checkHeaderClass(className) {
+    return this.headerEl.classList.contains(className);
   }
 
-  setHeaderClass() {
-    this.headerEl.classList.add('hasScrolled');
+  setHeaderClass(className) {
+    this.headerEl.classList.add(className);
   }
 
-  removeHeaderClass() {
-    this.headerEl.classList.remove('hasScrolled');
+  removeHeaderClass(className) {
+    this.headerEl.classList.remove(className);
   }
 
   setUpMobile() {

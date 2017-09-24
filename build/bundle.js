@@ -3364,6 +3364,7 @@ var Header = function () {
 
           menuLink.addEventListener('click', function (e) {
             that.headerEl.classList.toggle('open');
+            document.body.classList.remove('noScroll');
 
             var isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
             if (isSafari) {
@@ -3450,32 +3451,36 @@ var Header = function () {
       var _this = this;
 
       if (document.body.scrollTop > 10) {
-        this.setHeaderClass();
+        this.setHeaderClass('hasScrolled');
       }
+
+      window.setTimeout(function () {
+        document.body.classList.add('startAnimation');
+      }, 1);
 
       window.addEventListener('scroll', function () {
         var topScrollVal = document.body.scrollTop;
-        if (!_this.checkHeaderClass() && topScrollVal > 10) {
-          _this.setHeaderClass();
-        } else if (topScrollVal <= 10 && _this.checkHeaderClass()) {
-          _this.removeHeaderClass();
+        if (!_this.checkHeaderClass('hasScrolled') && topScrollVal > 10) {
+          _this.setHeaderClass('hasScrolled');
+        } else if (topScrollVal <= 10 && _this.checkHeaderClass('hasScrolled')) {
+          _this.removeHeaderClass('hasScrolled');
         }
       });
     }
   }, {
     key: 'checkHeaderClass',
-    value: function checkHeaderClass() {
-      return this.headerEl.classList.contains('hasScrolled');
+    value: function checkHeaderClass(className) {
+      return this.headerEl.classList.contains(className);
     }
   }, {
     key: 'setHeaderClass',
-    value: function setHeaderClass() {
-      this.headerEl.classList.add('hasScrolled');
+    value: function setHeaderClass(className) {
+      this.headerEl.classList.add(className);
     }
   }, {
     key: 'removeHeaderClass',
-    value: function removeHeaderClass() {
-      this.headerEl.classList.remove('hasScrolled');
+    value: function removeHeaderClass(className) {
+      this.headerEl.classList.remove(className);
     }
   }, {
     key: 'setUpMobile',

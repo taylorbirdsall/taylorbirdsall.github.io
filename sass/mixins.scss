@@ -230,7 +230,7 @@
       width: 100%;
       height: toRem(3px);
 
-      background: $gray-1;
+      background: white;
 
       transform: scale(0.85);
       transition: transform 300ms ease;
@@ -263,13 +263,13 @@
 {
   @include font-sizes(20px, 1);
   text-transform: uppercase;
-  color: $gray-1;
+  color: white;
 }
 
 @mixin font-footer
 {
   @include font-sizes(16px, 1);
-  color: $gray-1;
+  color: white;
 }
 
 @mixin font-white
@@ -277,7 +277,8 @@
   color: $white;
 }
 
-@mixin float-shadow {
+@mixin float-shadow
+{
   position: relative;
 
   box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.21);
@@ -286,7 +287,8 @@
 	transition-duration: 0.3s;
 	transition-property: transform;
 
-	&:before {
+	&:before
+  {
     content: '';
 
     position: absolute;
@@ -325,7 +327,8 @@
 	}
 }
 
-@mixin reveal {
+@mixin reveal
+{
   position: relative;
 
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
@@ -334,7 +337,8 @@
 
   transform: perspective(1px) translateZ(0);
 
-	&:before {
+	&:before
+  {
 		content: "";
 
     position: absolute;
