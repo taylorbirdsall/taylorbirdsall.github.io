@@ -3,6 +3,224 @@
   display: flex;
 
   min-height: calc(100vh - #{$header-size});
-  
+
+  color: white;
   background-color: $red-2;
+
+  &-item
+  {
+    @include bpgte(sm)
+    {
+      padding-top: toRem(30px);
+      padding-bottom: toRem(30px);
+
+      &:nth-child(even)
+      {
+        .Portfolio-article
+        {
+          flex-direction: row-reverse;
+        }
+
+        .Portfolio-highlightsList
+        {
+          padding-right: toRem(40px);
+        }
+      }
+
+      &:nth-child(odd)
+      {
+        .Portfolio-highlightsList
+        {
+          padding-left: toRem(40px);
+        }
+      }
+    }
+  }
+
+  &-article
+  {
+    display: flex;
+
+    @include bplte(xs)
+    {
+      flex-direction: column;
+    }
+  }
+
+  &-imageWrapper
+  {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-basis: 40%;
+    flex-shrink: 0;
+  }
+
+  &-imageLink
+  {
+    display: flex;
+    align-items: flex-start;
+
+    position: relative;
+
+    overflow: hidden;
+
+    @include bpgte(sm)
+    {
+      &:hover
+      {
+        .Portfolio-imageOverlay
+        {
+          opacity: 0.75;
+        }
+
+        .Portfolio-externalSVG
+        {
+          transform: translate(0, 0);
+        }
+
+        .Portfolio-imageText
+        {
+          transform: translate(0, 0);
+        }
+      }
+    }
+  }
+
+  &-imageOverlay
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    background-color: transparent;
+
+    border-radius: toRem(10px);
+
+    opacity: 1;
+
+    transition: opacity 500ms ease;
+
+    @include bpgte(sm)
+    {
+      background-color: black;
+
+      opacity: 0;
+    }
+  }
+
+  &-imageText
+  {
+    @include font-sizes(25px, 30px);
+    color: white;
+    text-align: center;
+
+    padding-left: toRem(15px);
+    padding-right: toRem(15px);
+
+    transform: translate(-200%, 0);
+
+    transition: transform 500ms ease;
+  }
+
+  &-image
+  {
+    border-radius: toRem(10px);
+
+    @include bplte(xs)
+    {
+      max-width: toRem(300px);
+    }
+  }
+
+  &-externalSVG
+  {
+    display: block;
+
+    position: absolute;
+    top: toRem(5px);
+    right: toRem(5px);
+
+    height: toRem(30px);
+    width: toRem(30px);
+
+    @include bpgte(sm)
+    {
+      transform: translate(40px, -40px);
+
+      transition: transform 500ms ease;
+    }
+
+    svg
+    {
+      fill: black;
+
+      @include bpgte(sm)
+      {
+        fill: white;
+      }
+    }
+  }
+
+  &-content
+  {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-basis: 60%;
+    flex-shrink: 0;
+
+    @include bpgte(sm)
+    {
+      justify-content: center;
+    }
+  }
+
+  &-highlightsList
+  {
+    @include bplte(xs)
+    {
+      padding-top: toRem(30px);
+      padding-bottom: toRem(30px);
+    }
+  }
+
+  &-highlightsItem
+  {
+    display: flex;
+
+    &:not(:last-child)
+    {
+      padding-bottom: toRem(20px);
+    }
+
+    &::before
+    {
+      content: '';
+
+      display: block;
+
+      flex-shrink: 0;
+
+      width: toRem(20px);
+      height: toRem(20px);
+
+      margin-right: toRem(10px);
+
+      background-image: url(../images/cube.svg);
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  &-highlightsLink
+  {
+    color: white;
+  }
 }
