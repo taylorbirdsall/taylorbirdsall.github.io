@@ -1,0 +1,52 @@
+.Section
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  padding: {
+    top: toRem(30px);
+    bottom: toRem(30px);
+    left: toRem(15px);
+    right: toRem(15px);
+  }
+
+  margin-top: -$header-size-xs;
+  border-top: $header-size-xs solid transparent;
+  background-clip: padding-box;
+
+  @include bpgte(sm)
+  {
+    min-height: calc(100vh - #{$header-size});
+
+    margin-top: -$header-size;
+    border-top-width: $header-size;
+  }
+
+  @include bp(sm, sm)
+  {
+    padding: {
+      top: toRem(30px);
+      bottom: toRem(30px);
+      left: toRem(30px);
+      right: toRem(30px);
+    }
+  }
+
+  @include bpgte(md)
+  {
+    padding: {
+      top: toRem(40px);
+      bottom: toRem(40px);
+      left: toRem(100px);
+      right: toRem(100px);
+    }
+  }
+
+  &-mini
+  {
+    padding: {
+      bottom: toRem(30px);
+    }
+  }
+}

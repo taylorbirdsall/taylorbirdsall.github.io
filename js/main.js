@@ -1,7 +1,19 @@
-var $ = require('../node_modules/jquery/dist/jquery.min.js');
+// Third party libraries
+import 'babel-polyfill';
 
-$(function() {
+// Internal modules
+import Header from './modules/Header';
+import Url from './modules/Url';
 
-  console.log('Hello from Webpack');
+let run = function() {
+  Header.init();
+  Url.init();
+}
 
-});
+if (document.readyState === "complete"
+     || document.readyState === "loaded"
+     || document.readyState === "interactive") {
+  run();
+} else {
+  document.addEventListener('DOMContentLoaded', run);
+}

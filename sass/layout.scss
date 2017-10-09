@@ -1,0 +1,30 @@
+.l-hidden-xs
+{
+  @include bplte(xs)
+  {
+    display: none;
+  }
+}
+
+.l-visible-xs
+{
+  @include bpgte(sm)
+  {
+    display: none;
+  }
+}
+
+.sr-only
+{
+  @include sr-only();
+
+  &--white
+  {
+    color: white;
+  }
+
+  &--black
+  {
+    color: black;
+  }
+}

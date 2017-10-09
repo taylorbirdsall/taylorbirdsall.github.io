@@ -1,0 +1,139 @@
+.Experience
+{
+  width: 100%;
+
+  &-wrapper
+  {
+    padding-bottom: toRem(30px);
+
+    @include bplte(xs)
+    {
+      padding-bottom: 0;
+    }
+  }
+
+  &-details
+  {
+    display: flex;
+    justify-content: space-between;
+
+    padding-bottom: toRem(10px);
+    margin-bottom: toRem(10px);
+
+    border-bottom: 1px dashed $white;
+  }
+
+  &-location
+  {
+    text-align: right;
+  }
+
+  &-item, &-nestedItem
+  {
+    position: relative;
+
+    margin-left: toRem(20px);
+
+    &::before
+    {
+      content: '';
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+
+      position: absolute;
+      left: toRem(-20px);
+
+      width: toRem(10px);
+      height: toRem(10px);
+
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &-item
+  {
+    margin-bottom: toRem(15px);
+
+    &::before
+    {
+      top: 0;
+
+      background-image: url('../images/circle_check_2.svg');
+
+      transform: translateY(50%);
+    }
+
+    &--Education
+    {
+      &::before
+      {
+        background-image: url('../images/circle_dot_2.svg');
+      }
+    }
+  }
+
+  &-sublist
+  {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin-top: toRem(10px);
+
+    @include bpgte(sm)
+    {
+      margin-left: toRem(30px);
+    }
+  }
+
+  &-subitem
+  {
+    margin-bottom: toRem(10px);
+
+    width: 100%;
+
+    &--Half
+    {
+      @include bpgte(sm)
+      {
+        min-width: 50%;
+        width: 50%;
+      }
+    }
+  }
+
+  &-nestedList
+  {
+    margin-top: toRem(10px);
+  }
+
+  &-nestedItem
+  {
+    margin-bottom: toRem(10px);
+
+    &::before
+    {
+      top: 50%;
+
+      background-image: url('../images/circle_check_3.svg');
+
+      transform: translateY(-50%);
+    }
+  }
+
+  &-name
+  {
+    @include bplte(xs)
+    {
+      padding-right: toRem(15px);
+    }
+  }
+
+  &-time
+  {
+    flex-shrink: 0;
+  }
+}
