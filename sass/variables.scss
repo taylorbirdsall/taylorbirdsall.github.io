@@ -1,6 +1,7 @@
 $image-path: '../images';
 
-$font-family-main: 'Roboto', sans-serif;
+$font-family-main: -apple-system, BlinkMacSystemFont, sans-serif;
+$font-family-secondary: 'Roboto', sans-serif;
 
 $font-weight-bold: 700;
 $font-weight-normal: 400;
@@ -12,10 +13,21 @@ $blue-2: #446CB3;
 $red-1: #C0392B;
 $red-2: #96281B;
 
+$green-1: #1E824C;
+
 $gray-1: #95A5A6;
 $gray-2: #BDC3C7;
+$gray-3: #ECF0F1;
 
+$black: black;
 $white: white;
+
+$header-size: 80/16 * 1rem;
+$header-size-xs: 50/16 * 1rem;
+$header-size-xs--scrolled: 30/16 * 1rem;
+$footer-size: 80/16 * 1rem;
+
+$box-shadow: 0 2px 5px rgba(0,0,0,.26);
 
 $screen-xs-min: 480/16 * 1rem;
 $screen-xs-max: 767/16 * 1rem;

@@ -1,0 +1,77 @@
+.About
+{
+  &-list
+  {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &-listTitle
+  {
+    margin-bottom: toRem(15px);
+  }
+
+  &-listItem
+  {
+    margin-bottom: toRem(10px);
+
+    list-style: disc;
+    list-style-position: inside;
+
+    &--green
+    {
+      color: $green-1;
+    }
+  }
+
+  &-listLink
+  {
+    font-weight: $font-weight-normal;
+  }
+
+  &-item
+  {
+    flex-basis: 100%;
+
+    width: 100%;
+    min-width: 100%;
+
+    margin-bottom: toRem(20px);
+
+    box-sizing: border-box;
+
+    @include bpgte(sm)
+    {
+      flex-basis: 50%;
+
+      width: 50%;
+      min-width: 50%;
+
+      margin-bottom: toRem(30px);
+
+      &:nth-child(even)
+      {
+        padding-left: toRem(15px)
+      }
+
+      &:nth-child(odd)
+      {
+        padding-right: toRem(15px)
+      }
+    }
+  }
+
+  &-description
+  {
+    width: 100%;
+
+    margin-bottom: toRem(30px);
+
+    text-align: center;
+
+    @include bpgte(sm)
+    {
+      width: 75%;
+    }
+  }
+}

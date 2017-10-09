@@ -1,4 +1,21 @@
 @import "variables";
+@import "fonts";
 @import "mixins";
 @import "base";
+@import "layout";
 @import "theme";
+
+@import "modules/About";
+@import "modules/Address";
+@import "modules/Body";
+@import "modules/Details";
+@import "modules/Experience";
+@import "modules/Footer";
+@import "modules/Header";
+@import "modules/Heading";
+@import "modules/Info";
+@import "modules/Link";
+@import "modules/Portfolio";
+@import "modules/Resume";
+@import "modules/Section";
+@import "modules/Skills";

@@ -120,67 +120,262 @@
 @mixin sr-only()
 {
   position: absolute;
+
   width: toRem(1px);
   height: toRem(1px);
-  margin: toRem(-1px);
+
   padding: 0;
+  margin: toRem(-1px);
+
   overflow: hidden;
+
   clip: rect(0,0,0,0);
+
   border: 0;
+
   white-space: nowrap;
 }
 
-@mixin link-primary
+@mixin link-underline-center($color: $black)
 {
-  color: $gray-1;
-  transition: color 0.3s ease-in-out 0s;
-
-  &:hover
-  {
-    color: $gray-2;
-  }
-
-  &:link, &:hover, &:active, &:visited
-  {
-    text-decoration: none;
-  }
-}
-
-@mixin link-transition
-{
-  @include link-primary;
   position: relative;
+
+  color: $color;
+
+  transition: color 300ms ease-in-out;
 
   &::before
   {
     content: "";
+
     position: absolute;
-    width: 100%;
-    height: toRem(3px);
     bottom: toRem(-3px);
     left: 0;
-    background-color: $gray-2;
+
+    width: 100%;
+    height: toRem(2px);
+
+    background-color: $color;
+
     visibility: hidden;
+
     transform: scaleX(0);
-    transition: all 0.3s ease-in-out 0s;
+    transition: all 300ms ease-in-out;
   }
 
-  &:hover::before
+  &:hover
   {
-    visibility: visible;
-    transform: scaleX(1);
+    @include bpgte(sm)
+    {
+      color: $color;
+
+      &::before
+      {
+        visibility: visible;
+
+        transform: scaleX(1);
+      }
+    }
+  }
+}
+
+@mixin link-underline-left($color: $white)
+{
+  position: relative;
+
+  color: $color;
+
+  &::after
+  {
+    content: '';
+
+    position: absolute;
+    left: 0;
+    bottom: toRem(-3px);
+
+    height: toRem(2px);
+    width: 0;
+
+    background-color: $color;
+
+    transition: all 350ms ease-in-out;
   }
 
+  &:hover
+  {
+    @include bpgte(sm)
+    {
+      color: $color;
+
+      &::after
+      {
+        width: 100%;
+      }
+    }
+  }
+}
+
+@mixin link-overline
+{
+  @include bpgte(sm)
+  {
+    &::before, &::after
+    {
+      content: '';
+
+      position: absolute;
+      top: 100%;
+      left: 0;
+
+      width: 100%;
+      height: toRem(3px);
+
+      background: white;
+
+      transform: scale(0.85);
+      transition: transform 300ms ease;
+    }
+
+    &::after
+    {
+      opacity: 0;
+
+      transition: top 300ms ease, opacity 300ms ease, transform 300ms ease;
+    }
+
+    &:hover
+    {
+      &::before, &::after
+      {
+        transform: scale(1);
+      }
+
+      &::after
+      {
+        top: 0%;
+        opacity: 1;
+      }
+    }
+  }
 }
 
 @mixin font-header
 {
-  @include font-sizes(18px, 1);
+  @include font-sizes(20px, 1);
   text-transform: uppercase;
+  color: white;
 }
 
 @mixin font-footer
 {
   @include font-sizes(16px, 1);
-  color: $gray-1;
+  color: white;
+}
+
+@mixin font-white
+{
+  color: $white;
+}
+
+@mixin float-shadow
+{
+  position: relative;
+
+  box-shadow: 6px 6px 5px 0px rgba(0,0,0,0.21);
+
+  transform: perspective(1px) translateZ(0);
+	transition-duration: 0.3s;
+	transition-property: transform;
+
+	&:before
+  {
+    content: '';
+
+    position: absolute;
+    top: 100%;
+    left: 5%;
+    z-index: -1;
+
+	  height: 10px;
+	  width: 90%;
+
+    pointer-events: none;
+
+	  opacity: 0;
+
+	  background: -webkit-radial-gradient(center, ellipse, rgba(0,0,0,.35) 0%, rgba(0, 0, 0, 0) 80%);
+	  background: radial-gradient(ellipse at center, rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 80%); /* W3C */
+
+		transition-duration: 0.3s;
+		transition-property: "transform, opacity";
+	}
+
+	&:hover,
+	&:focus,
+	&:active
+  {
+    box-shadow: 0 0 0 0;
+
+		transform: translateY(-5px);
+
+		&::before
+    {
+			opacity: 1;
+
+			transform: translateY(5px);
+		}
+	}
+}
+
+@mixin reveal
+{
+  position: relative;
+
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+
+  overflow: hidden;
+
+  transform: perspective(1px) translateZ(0);
+
+	&:before
+  {
+		content: "";
+
+    position: absolute;
+    left: 0px;
+    right: 0px;
+		top: 0px;
+		bottom: 0px;
+
+    z-index: 0;
+
+		border-color: $blue-1;
+		border-style: solid;
+		border-width: 0;
+    border-radius: 50%;
+
+		transition-property: border-width;
+		transition-duration: 0.3s;
+		transition-timing-function: linear;
+	}
+
+	&:hover,
+	&:focus,
+	&:active
+  {
+    @include bpgte(sm)
+    {
+      &::before
+      {
+  			border-width: toRem(5px);
+
+        transform: translateY(0);
+
+        @include bpgte(sm)
+        {
+          border-width: toRem(10px);
+        }
+  		}
+    }
+	}
 }

@@ -1,0 +1,10 @@
+.Body
+{
+  &:not(.full)
+  {
+    .Section-alpha
+    {
+      display: none;
+    }
+  }
+}

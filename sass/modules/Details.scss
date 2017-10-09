@@ -1,0 +1,10 @@
+.Details
+{
+  &-item
+  {
+    &:not(:last-child)
+    {
+      margin-bottom: toRem(15px);
+    }
+  }
+}
