@@ -1,5 +1,4 @@
-export default class Header
-{
+export default class Header {
   static init() {
     new Header();
   }

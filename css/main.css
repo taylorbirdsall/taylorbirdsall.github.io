@@ -122,6 +122,9 @@ button {
 .Address-city {
   display: inline-flex; }
 
+.Body:not(.full) .Section-alpha {
+  display: none; }
+
 .Details-item:not(:last-child) {
   margin-bottom: 0.9375rem; }
 

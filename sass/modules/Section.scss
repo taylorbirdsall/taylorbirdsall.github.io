@@ -18,7 +18,7 @@
   @include bpgte(sm)
   {
     min-height: calc(100vh - #{$header-size});
-    
+
     margin-top: -$header-size;
     border-top-width: $header-size;
   }
