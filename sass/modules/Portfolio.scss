@@ -117,10 +117,6 @@
 
   &-imageText
   {
-    @include font-sizes(25px, 30px);
-    color: white;
-    text-align: center;
-
     padding-left: toRem(15px);
     padding-right: toRem(15px);
 
