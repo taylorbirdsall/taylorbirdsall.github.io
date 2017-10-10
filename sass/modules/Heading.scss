@@ -17,6 +17,15 @@
     margin-bottom: 20px;
   }
 
+  &-portfolio
+  {
+    @include font-sizes(25px, 30px);
+    font-weight: $font-weight-normal;
+    text-align: center;
+
+    color: white;    
+  }
+
   &--underline
   {
     border-bottom: 1px solid $white;
