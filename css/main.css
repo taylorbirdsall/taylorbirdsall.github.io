@@ -71,6 +71,8 @@ button {
     color: black; }
 
 .Main {
+  display: flex;
+  flex-direction: column;
   margin-top: 3.125rem;
   background-color: white;
   font-size: 0.875rem; }
@@ -107,9 +109,9 @@ button {
       width: 50%;
       min-width: 50%;
       margin-bottom: 1.875rem; }
-      .About-item:nth-child(even) {
+      .About-item:nth-child(even) .About-itemWrapper {
         padding-left: 0.9375rem; }
-      .About-item:nth-child(odd) {
+      .About-item:nth-child(odd) .About-itemWrapper {
         padding-right: 0.9375rem; } }
 .About-description {
   width: 100%;
@@ -217,7 +219,7 @@ button {
     .Header {
       height: 3.125rem;
       transition: height 300ms ease-in-out; } }
-  @media (min-width: 48rem) {
+  @media (min-width: 768px) {
     .Header {
       height: 5rem;
       box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26); } }
@@ -536,6 +538,7 @@ button {
   .Info-contact {
     padding-left: 1.875rem;
     opacity: 0;
+    max-width: 100%;
     transform: translate3d(50px, 0, 0); } }
 
 @media (min-width: 48rem) {
@@ -643,6 +646,9 @@ button {
   color: white;
   background-color: #96281B; }
   @media (min-width: 48rem) {
+    .Portfolio-list {
+      width: 100%; } }
+  @media (min-width: 48rem) {
     .Portfolio-item {
       padding-top: 1.875rem;
       padding-bottom: 1.875rem; }
@@ -661,8 +667,10 @@ button {
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    flex-basis: 40%;
     flex-shrink: 0; }
+    @media (min-width: 48rem) {
+      .Portfolio-imageWrapper {
+        flex-basis: 40%; } }
   .Portfolio-imageLink {
     display: flex;
     align-items: flex-start;
@@ -702,6 +710,9 @@ button {
     @media (max-width: 47.9375rem) {
       .Portfolio-image {
         max-width: 18.75rem; } }
+    @media (min-width: 48rem) {
+      .Portfolio-image {
+        width: 100%; } }
   .Portfolio-externalSVG {
     display: block;
     position: absolute;
@@ -722,11 +733,11 @@ button {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    flex-basis: 60%;
     flex-shrink: 0; }
     @media (min-width: 48rem) {
       .Portfolio-content {
-        justify-content: center; } }
+        justify-content: center;
+        flex-basis: 60%; } }
   @media (max-width: 47.9375rem) {
     .Portfolio-highlightsList {
       padding-top: 1.875rem;
@@ -783,6 +794,9 @@ button {
   .Section-mini {
     padding-bottom: 1.875rem; }
 
+@media (min-width: 48rem) {
+  .Skills {
+    max-width: 100%; } }
 .Skills-list {
   display: flex;
   flex-wrap: wrap; }
@@ -796,7 +810,6 @@ button {
   padding-right: 0.625rem;
   margin-right: 0.625rem;
   margin-bottom: 0.9375rem;
-  cursor: pointer;
   position: relative;
   box-shadow: 6px 6px 5px 0px rgba(0, 0, 0, 0.21);
   transform: perspective(1px) translateZ(0);

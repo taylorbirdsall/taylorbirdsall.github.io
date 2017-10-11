@@ -7,6 +7,14 @@
   color: white;
   background-color: $red-2;
 
+  &-list
+  {
+    @include bpgte(sm)
+    {
+      width: 100%;
+    }
+  }
+
   &-item
   {
     @include bpgte(sm)
@@ -52,8 +60,12 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    flex-basis: 40%;
     flex-shrink: 0;
+
+    @include bpgte(sm)
+    {
+      flex-basis: 40%;
+    }
   }
 
   &-imageLink
@@ -133,6 +145,11 @@
     {
       max-width: toRem(300px);
     }
+
+    @include bpgte(sm)
+    {
+      width: 100%;
+    }
   }
 
   &-externalSVG
@@ -169,12 +186,12 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    flex-basis: 60%;
     flex-shrink: 0;
 
     @include bpgte(sm)
     {
       justify-content: center;
+      flex-basis: 60%;
     }
   }
 
