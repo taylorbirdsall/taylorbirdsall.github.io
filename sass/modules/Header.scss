@@ -18,7 +18,7 @@
     transition: height 300ms ease-in-out;
   }
 
-  @include bpgte(sm)
+  @media (min-width: 768px)
   {
     height: $header-size;
 

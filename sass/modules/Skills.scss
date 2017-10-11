@@ -1,5 +1,10 @@
 .Skills
 {
+  @include bpgte(sm)
+  {
+    max-width: 100%;
+  }
+
   &-list
   {
     display: flex;
@@ -24,8 +29,6 @@
       right: toRem(10px);
       bottom: toRem(15px);
     }
-
-    cursor: pointer;
 
     @include float-shadow;
 

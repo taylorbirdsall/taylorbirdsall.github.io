@@ -1,5 +1,8 @@
 .Main
 {
+  display: flex;
+  flex-direction: column;
+
   margin-top: $header-size-xs;
 
   background-color: $white;

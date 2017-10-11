@@ -51,12 +51,18 @@
 
       &:nth-child(even)
       {
-        padding-left: toRem(15px)
+        .About-itemWrapper
+        {
+          padding-left: toRem(15px)
+        }
       }
 
       &:nth-child(odd)
       {
-        padding-right: toRem(15px)
+        .About-itemWrapper
+        {
+          padding-right: toRem(15px)
+        }
       }
     }
   }
