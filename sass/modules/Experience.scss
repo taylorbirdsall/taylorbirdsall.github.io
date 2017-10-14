@@ -124,6 +124,11 @@
     }
   }
 
+  &-nestedLink
+  {
+    display: inline;
+  }
+
   &-name
   {
     @include bplte(xs)

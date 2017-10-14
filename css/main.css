@@ -190,6 +190,8 @@ button {
       top: 50%;
       background-image: url("../images/circle_check_3.svg");
       transform: translateY(-50%); }
+  .Experience-nestedLink {
+    display: inline; }
   @media (max-width: 47.9375rem) {
     .Experience-name {
       padding-right: 0.9375rem; } }
