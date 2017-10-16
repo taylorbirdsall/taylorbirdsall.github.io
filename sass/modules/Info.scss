@@ -19,9 +19,7 @@
     width: toRem(100px);
     height: toRem(100px);
 
-    // background-image: url($image-path + '/bio-photo.jpeg');
-    // background-image: url($image-path + '/bio-photo2.jpg');
-    background-image: url($image-path + '/bio-photo3.jpg');
+    background-image: url($image-path + '/bio-photo2.jpg');
     background-size: cover;
 
     border: toRem(5px) solid $gray-1;
